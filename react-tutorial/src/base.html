@@ -1,0 +1,207 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <title>{% block title %}CommonRoadProject{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{#    <script src="/static/js/jquery-3.3.1.min.js"></script>#}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header cr-navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="logo pull-left" href="/"><img src="{% static 'img/tum-logo-white-xs.svg' %}" height="30px"></a>
+        <a class="navbar-brand" href="/"><img src="{% static 'img/commonroad_logo_white.svg' %}" height="30px"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/blob/master/vehicleModels_commonRoad.pdf">Vehicle Model Documentation</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-cost-functions/blob/master/costFunctions_commonRoad.pdf">Cost Function Documentation</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-scenarios/blob/master/documentation/XML_commonRoad.pdf">XML Format Documentation</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-scenarios/blob/master/documentation/XML_commonRoad_XSD.xsd">XML Schema Definition</a></li>
+                    <li><a href="{% static 'docs/commonroad-io/index.html' %}">Commonroad_io Documentation</a></li>
+                    <li><a href="{% static 'docs/opendrive2lanelet/index.html' %}">OpenDRIVE to Lanelet Converter Documentation</a></li>
+                    <li><a href="{% static 'docs/collision-checker/index.html' %}">Collision Checker Documentation</a></li>
+                    <li><a href="{% static 'docs/commonroad-sumo-interface/index.html' %}">CommonRoad-SUMO Interface</a></li>
+                    <li><a href="{% static 'docs/commonroad-search/index.html' %}">CommonRoad Search: Sampling-based motion planning</a></li>
+                </ul>
+            </li>
+            <li>
+{#                Commented this code if in case, we decide to have the dropdown as well.#}
+{#                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tutorials#}
+{#                    <span class="caret"></span></a>#}
+{#                <ul class="dropdown-menu multi-level" role="menu">#}
+                    {# TODO: Move to a persistant storage as this could soon become a long list #}
+{#                    <li class="dropdown-submenu">#}
+{#                        <a href="#">#}
+{#                            Collision Checker#}
+{#                            <span class="caret"></span>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li>#}
+{#                                <a href="{% url 'cc_python_wrapper' %}">#}
+{#                                    Tutorial 01: Python Wrapper#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a href="{% url 'cc_io_interface' %}">#}
+{#                                    Tutorial 02: commonroad-io Interface#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                 <a href="https://gitlab.lrz.de/tum-cps/commonroad-collision-checker/tree/master/tutorials" target="_blank">#}
+{#                                     Download All#}
+{#                                </a>#}
+{#                            </li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                </ul>#}
+                <a href="/tutorials">Tutorials</a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://pypi.org/project/commonroad-io">CommonRoad_io</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-collision-checker">Collision Checker</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-sumo-interface">CommonRoad-SUMO Interface</a></li>
+                    <li><a href="https://pypi.org/project/opendrive2lanelet/">OpenDRIVE to Lanelet Converter</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-search">CommonRoad Search: Sampling-based motion planning</a></li>
+                    <li><a href="http://spot.in.tum.de">SPOT</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/MATLAB">Vehicle Models For MATLAB</a></li>
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/Python">Vehicle Models For Python</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Scenarios
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="https://gitlab.lrz.de/tum-cps/commonroad-scenarios">Repository</a></li>
+                    <li><a href="{% url 'scenarios-index' %}">Visualization and Selection</a></li>
+                    <li><a href="{% url 'submissions.ranking' %}">Ranking</a></li>
+                </ul>
+            </li>
+            <li {% if request.resolver_match.url_name == 'publications-index' %}class="active"{% endif %}>
+                <a href={% url 'publications-index' %}>Publications</a>
+            </li>
+
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Community
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/forum">Forum</a></li>
+                    <li {% if request.resolver_match.url_name == 'teaching' %}class="active"{% endif %}>
+                        <a href="{% url 'teaching' %}">Teaching Material - Search Algorithms</a>
+                    </li>
+                    <li {% if request.resolver_match.url_name == 'team' %}class="active"{% endif %}>
+                        <a href="{% url 'team' %}">Team</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                    {% if user.is_authenticated %}
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Submit Solutions
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'submissions.my_submissions' %}">My Submissions</a></li>
+                        <li><a href="{% url 'submissions.create_submission' %}">Submit New Solution</a></li>
+                    </ul>
+            </li>
+        {% if user.is_staff %}
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'admin:login' %}">Go to Admin Panel</a></li>
+{#                    {% if user.is_superuser %}#}
+{#                    <li><a href="{% url 'scenarios-update_full_db' %}">Update Scenario DB</a></li>#}
+{#                    <li><a href="{% url 'scenarios-update_full_db' %}?overwrite=True">Overwrite Scenario#}
+{#                        DB</a></li>#}
+{#                    {% endif %}#}
+                </ul>
+            </li>
+                    {% endif %}
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'edit-profile' %}">Edit/Update</a></li>
+                    <li {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}><a
+                        href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                    </li>
+                </ul>
+            </li>
+                    {% else %}
+                        <a href="{% url 'submissions.create_submission' %}">Submit New Solution</a>
+            <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}><a
+                    href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    {% endif %}
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+
+<header>
+    <!--{% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+      <a href="{% url 'login' %}">login</a>
+    {% endif %}-->
+</header>
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu>a').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+<footer class="navbar-fixed-bottom navbar-default cr-footer">
+    <div class="col-sm-4 col-xs-1"></div>
+    <div class="col-sm-4 col-xs-12">
+        <div align="center" class="cr-footer-email">Contact us at <a class="email " title="e-mail"
+                                                                     href="mailto:commonroad-i06@in.tum.de">commonroad-i06@in.tum.de</a>
+        </div>
+        <div align="center">Copyright © 2019 - All Rights Reserved - Technische Universität München</div>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+        <div align="right" style="height: 100%; margin-right: 1em;">
+            <a class="align-middle" href="{% url 'license' %}" style="color: white !important;">License</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
