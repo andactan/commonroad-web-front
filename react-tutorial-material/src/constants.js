@@ -14,17 +14,44 @@ export const navMenus = {
     },
 
     "tools": {
-        "names": ["name"],
-        "links": ["link"]
+        "names": [
+            "CommonRoad_io",
+            "Collision Checker",
+            "CommonRoad-SUMO Interface",
+            "OpenDRIVE to Lanelet Converter",
+            "CommonRoad Search: Sampling-based Motion Planning",
+            "Spot",
+            "Vehicle Models for MATLAB",
+            "Vehicle Models for Python"
+        ],
+        "links": ["#", "#", "#", "#", "#", "#", "#", "#"]
+    },
+
+    "tutorials": {
+        "names": [],
+        "links": ["#"]
     },
 
     "scenarios": {
-        "names": ["name"],
-        "links": ["link"]
+        "names": [
+            "Repository",
+            "Ranking",
+            "Visualization and Selection"
+        ],
+        "links": ["#", "#", "#"]
+    },
+
+    "publications": {
+        "names": [],
+        "links": ["#"]
     },
 
     "community": {
-        "names": ["name"],
+        "names": [
+            "Forum",
+            "Teaching Material - Search Algorithms",
+            "Team"
+        ],
         "links": ["link"]
     }
 }

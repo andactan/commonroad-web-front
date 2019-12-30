@@ -16,6 +16,7 @@ import Slider from '@material-ui/core/Slider';
 import NestedItem from './nested-item';
 import {navMenus} from './constants';
 import Logo from './logo';
+import ScenarioFilter from './scenario-filter';
 
 const drawerWidth = '25%';
 
@@ -65,8 +66,17 @@ const useStyles = makeStyles(theme => ({
 
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(5),
   },
+
+  typoContent: {
+    marginBottom: 14
+  },
+
+  divider: {
+    marginTop: 10,
+    marginBottom: 10
+  }
 
 }));
 
@@ -106,10 +116,33 @@ export default function NavBar() {
               <NestedItem text="Documentation" names={navMenus.documentation.names}></NestedItem>
               <NestedItem text="Community" names={navMenus.community.names}></NestedItem>
               <NestedItem text="Scenarios" names={navMenus.scenarios.names}></NestedItem>
+              <NestedItem text="Community" names={navMenus.community.names}></NestedItem>
+              <NestedItem text="Tutorials" names={navMenus.tutorials.names}></NestedItem>
+              <NestedItem text="Publications" names={navMenus.publications.names}></NestedItem>
             </Drawer>
 
             <main className={classes.content}>
-                <Typography>dadasdasdasd</Typography>
+                <Typography className={classes.typoContent} variant="body1">
+                  Below, we visualize all our traffic scenarios, which range from simple scenarios with a few obstacles
+                  to complex intersection scenarios with many road users. The scenarios are either obtained from real
+                  traffic data (e.g., NGSIM dataset), simulation or are hand-crafted, mostly based on real road networks.
+                  The source of each scenario is also tagged in each scenario file. Please note that we continously add 
+                  more scenarios.
+                </Typography>
+
+                <Typography className={classes.typoContent} variant="body1">
+                  The data for each scenario is stored in separate XML files named by the unique ID and can be downloaded
+                  from below or from the scenario repository. For details on the data in the XML files, please have a look
+                  at the XML format documentation.
+                </Typography>
+
+                <Divider className={classes.divider} variant="middle"></Divider>
+
+                <Typography className={classes.typoContent} variant="body1">
+                  Apply filters the narrow down scenarios list
+                </Typography>
+
+                <ScenarioFilter></ScenarioFilter>
             </main>
         </div>
     );
