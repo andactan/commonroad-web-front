@@ -17,6 +17,7 @@ import NestedItem from './nested-item';
 import {navMenus} from './constants';
 import Logo from './logo';
 import ScenarioFilter from './scenario-filter';
+import ScenarioCard from './scenario-card';
 
 const drawerWidth = '25%';
 
@@ -143,6 +144,9 @@ export default function NavBar() {
                 </Typography>
 
                 <ScenarioFilter></ScenarioFilter>
+                
+                <ScenarioCard></ScenarioCard>
+                <ScenarioCard></ScenarioCard>
             </main>
         </div>
     );
