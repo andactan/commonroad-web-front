@@ -1,14 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
-import { red } from '@material-ui/core/colors';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles, IconButton, Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { makeStyles, IconButton, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -67,14 +64,26 @@ export default function ScenarioCard(){
 
     const classes = useStyles();
     const style = {
-        width: "30%",
-        float: "left",
-        margin: "1.5% 1.5%"
+        width: "auto",
+        display: "block",
+        margin: "1.5% auto"
     };
 
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = React.useState(true);
     const handleExpandClick = () => {
         setExpanded(!expanded);
+    }
+
+    const buttonGroupStyle = {
+        width: "50%",
+        float: "right",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+    }
+
+    const buttonStyle = {
+        margin: "10px"
     }
 
     return (
@@ -99,26 +108,36 @@ export default function ScenarioCard(){
                 </CardHeader>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <img src={require("./assets/placeholder.jpg")} style={style}></img>
-                        <TableContainer className={classes.table}>
-                            <Table>
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Dessert</TableCell>
-                                        <TableCell>Salt</TableCell>
-                                        <TableCell>Sour</TableCell>
-                                    </TableRow>
-                                </TableHead>
+                        <div style={{float: "left", width: "50%"}}>
+                            <img src={require("./assets/placeholder.jpg")} style={style}></img>
+                        </div>
 
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell>0</TableCell>
-                                        <TableCell>1</TableCell>
-                                        <TableCell>2</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                        <div style={buttonGroupStyle}> 
+                            <div >
+                                <Button style={buttonStyle} variant="contained" color="primary">Button</Button>
+                                <Button style={buttonStyle} variant="contained" color="primary">Button</Button>
+                            </div>
+                            
+                            <TableContainer className={classes.table}>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Dessert</TableCell>
+                                            <TableCell>Salt</TableCell>
+                                            <TableCell>Sour</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell>0</TableCell>
+                                            <TableCell>1</TableCell>
+                                            <TableCell>2</TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </div>
                     </CardContent>
                 </Collapse>
             </Card>
