@@ -27,7 +27,6 @@ export default function Submissons(){
             <NavBar></NavBar>
             <div style={{width: "70%", margin: "0 auto"}}>
                 <div style={{marginBottom: "20px", marginTop: "20px"}}>
-                    <Typography variant="h4">Best Submissons</Typography>
                     <Typography>
                         Here we show the best solutions for each benchmark. To see the rankings
                         for a benchmark, please click on the benchmark ID.

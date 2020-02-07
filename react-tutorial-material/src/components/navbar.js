@@ -1,18 +1,12 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import { Link } from "react-router-dom";
+
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import NestedItem from './nested-item';
-import {navMenus} from '../constants';
 import Logo from './logo';
-import { Link, Button, MenuItem, Menu } from '@material-ui/core';
+import {  Button, MenuItem, Menu } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const drawerWidth = '25%';
@@ -301,7 +295,11 @@ export default function NavBar() {
                     </Menu>
 
                     {/* Scenarios menu -dropdown*/}
-                    <Button aria-controls="scenarios" className={classes.menuButton} onClick={handleScenariosClick}> Scenarios </Button>
+                    <Button aria-controls="scenarios" 
+                      className={classes.menuButton} 
+                      onClick={handleScenariosClick}
+                      endIcon={<ArrowDropDownIcon></ArrowDropDownIcon>}
+                      > Scenarios </Button>
                     <Menu
                       id="scenarios"
                       anchorEl={scenariosAnchorEl}
@@ -311,9 +309,17 @@ export default function NavBar() {
                       getContentAnchorEl={null}
                       anchorOrigin={{vertical: "bottom", horizontal: "left"}}
                     >
-                      <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Repository </MenuItem>
-                      <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Ranking </MenuItem>
-                      <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Visualization </MenuItem>
+                      <a className={classes.a} href="https://gitlab.lrz.de/tum-cps/commonroad-scenarios" target="_blank">
+                        <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Repository </MenuItem>
+                      </a>
+
+                      <Link to="/submissions" style={{textDecoration: "none", color: "inherit"}}> 
+                        <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Ranking </MenuItem> 
+                      </Link>
+
+                      <Link to="/scenarios" style={{textDecoration: "none", color: "inherit"}}> 
+                        <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Visualization </MenuItem>
+                      </Link>
                     </Menu>
 
                     {/* Publications menu - single button */}
