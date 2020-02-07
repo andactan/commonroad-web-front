@@ -109,7 +109,7 @@ export default function ScenarioCard(){
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
                         <div style={{float: "left", width: "50%"}}>
-                            <img src={require("./assets/placeholder.jpg")} style={style}></img>
+                            <img src={require("../assets/placeholder.jpg")} style={style}></img>
                         </div>
 
                         <div style={buttonGroupStyle}> 

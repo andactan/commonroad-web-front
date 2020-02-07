@@ -14,6 +14,10 @@ const useStyles = makeStyles(theme => ({
 
     rangeSlider: {
         padding: "10px"
+    },
+
+    typography: {
+        fontSize: "14px"
     }
 }));
 
@@ -26,6 +30,7 @@ export default function ScenarioFilter(){
 
     const [tags, setTags] = React.useState([]); // multiple select
     const [obsTypes, setObsTypes] = React.useState([]); // multiple select
+    const [sources, setSources] = React.useState([]); // multiple select
 
     const [timeHorizon, setTimeHorizon] = React.useState([20, 100]); // range slider
     const [initialVelocity, setInitialVelocity] = React.useState([20, 100]); // range slider
@@ -33,6 +38,10 @@ export default function ScenarioFilter(){
     const [dynamicObs, setDynamicObs] = React.useState([20, 100]); // range slider
     const [egoVehicle, setEgoVehicle] = React.useState([20, 100]); // range slider
     const [goalRegions, setGoalRegions] = React.useState([20, 100]); // range slider
+
+    const handleSourcesChange = event => {
+        setSources(event.target.value);
+    }
 
     const handleVersionChange = event => {
         setVersion(event.target.value);
@@ -77,12 +86,22 @@ export default function ScenarioFilter(){
     return (
         <form action="submit">
             {/* version select */}
-            <Grid container spacing={5} alignItems="flex-end">
-                <Grid item xs={2}>
-                    <Typography>Version</Typography>
+            <Grid container spacing={2} alignItems="flex-end">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography}>Version</Typography>
                 </Grid>
-                <Grid item  xs={4}>
-                    <Select value={version} onChange={handleVersionChange} className={classes.select}>
+                <Grid item  xs={6}>
+                    <Select 
+                    value={version} 
+                    onChange={handleVersionChange} 
+                    className={classes.select}
+                    MenuProps={{
+                        getContentAnchorEl: null,
+                        anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "left"
+                        }
+                    }}>
                         <MenuItem value={1}>One</MenuItem>
                         <MenuItem value={2}>Two</MenuItem>
                     </Select>
@@ -90,12 +109,22 @@ export default function ScenarioFilter(){
             </Grid>
             
             {/* prediction type selects */}
-            <Grid container spacing={5} alignItems="flex-end">
-                <Grid item xs={2}>
-                    <Typography>Type of Prediction</Typography>
+            <Grid container spacing={2} alignItems="flex-end">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography}>Type of Prediction</Typography>
                 </Grid>
-                <Grid item xs={4}>
-                    <Select value={predType} onChange={handlePredChange} className={classes.select}>
+                <Grid item xs={6}>
+                    <Select 
+                    value={predType} 
+                    onChange={handlePredChange} 
+                    className={classes.select}
+                    MenuProps={{
+                        getContentAnchorEl: null,
+                        anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "left"
+                        }
+                    }}>
                         <MenuItem key={1} value={1}>1</MenuItem>
                         <MenuItem key={2} value={2}>2</MenuItem>
                     </Select>
@@ -103,16 +132,23 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* tags multiple select */}
-            <Grid container spacing={5} alignItems="flex-end">
-                <Grid item xs={2}>
-                    <Typography>Tags</Typography>
+            <Grid container spacing={2} alignItems="flex-end">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography}>Tags</Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <Select
                     multiple
                     value={tags} 
                     onChange={handleTagChange}
                     className={classes.select}
+                    MenuProps={{
+                        getContentAnchorEl: null,
+                        anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "left"
+                        }
+                    }}
                     renderValue={selected=>(
                         <div>
                             {selected.map(value=> (
@@ -128,16 +164,23 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* types of obstacles, multiple select */}
-            <Grid container spacing={5} alignItems="flex-end">
-                <Grid item xs={2}>
-                    <Typography>Types of Obstacles</Typography>
+            <Grid container spacing={2} alignItems="flex-end">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography}>Types of Obstacles</Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <Select
                     multiple
                     value={obsTypes} 
                     onChange={handleObsTypesChange}
                     className={classes.select}
+                    MenuProps={{
+                        getContentAnchorEl: null,
+                        anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "left"
+                        }
+                    }}
                     renderValue={selected=>(
                         <div>
                             {selected.map(value=> (
@@ -152,13 +195,48 @@ export default function ScenarioFilter(){
                 </Grid>
             </Grid>
 
-            {/* time horizon slider */}
-            <Grid container spacing={5} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography id="range-slider">Time Horizon (s)</Typography>
+            {/* source select */}
+            <Grid container spacing={3} alignItems="flex-end">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography} id="source-select-tag">Sources</Typography>
                 </Grid>
 
-                <Grid item xs={4} className={classes.rangeSlider}>
+                <Grid item xs={6}>
+                    <Select
+                    multiple
+                    value={sources}
+                    onChange={handleSourcesChange}
+                    className={classes.select}
+                    MenuProps={{
+                        getContentAnchorEl: null,
+                        anchorOrigin: {
+                            vertical: "bottom",
+                            horizontal: "left"
+                        }
+                    }}
+                    renderValue={selected=>(
+                        <div>
+                            {selected.map(value=> (
+                                <Chip key={value} label={value}></Chip>
+                            ))}
+                        </div>
+                    )}
+                    >
+                        <MenuItem key={1} value={1}>Source1</MenuItem>
+                        <MenuItem key={2} value={2}>Source2</MenuItem>
+                        <MenuItem key={3} value={3}>Source3</MenuItem>
+                    </Select>
+                </Grid>
+
+            </Grid>
+
+            {/* time horizon slider */}
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography} id="range-slider">Time Horizon (s)</Typography>
+                </Grid>
+
+                <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
                     value={timeHorizon}
@@ -170,12 +248,12 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* initial velocity */}
-            <Grid container spacing={5} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography id="range-slider">Initial Velocity (m/s)</Typography>
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography} id="range-slider">Initial Velocity (m/s)</Typography>
                 </Grid>
 
-                <Grid item xs={4} className={classes.rangeSlider}>
+                <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
                     value={initialVelocity}
@@ -187,12 +265,12 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* static obstacles */}
-            <Grid container spacing={5} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography id="range-slider">Number of Static Obstacles</Typography>
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography} id="range-slider">Number of Static Obstacles</Typography>
                 </Grid>
 
-                <Grid item xs={4} className={classes.rangeSlider}>
+                <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
                     value={staticObs}
@@ -204,12 +282,12 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* dynamic obstacles */}
-            <Grid container spacing={5} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography id="range-slider">Number of Dynamic Vehicles</Typography>
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography} id="range-slider">Number of Dynamic Vehicles</Typography>
                 </Grid>
 
-                <Grid item xs={4} className={classes.rangeSlider}>
+                <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
                     value={dynamicObs}
@@ -221,12 +299,12 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* ego vehicles */}
-            <Grid container spacing={5} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography id="range-slider">Number of Ego Vehicles</Typography>
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography} id="range-slider">Number of Ego Vehicles</Typography>
                 </Grid>
 
-                <Grid item xs={4} className={classes.rangeSlider}>
+                <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
                     value={egoVehicle}
@@ -238,12 +316,12 @@ export default function ScenarioFilter(){
             </Grid>
 
             {/* number of goal regions */}
-            <Grid container spacing={5} alignItems="center">
-                <Grid item xs={2}>
-                    <Typography id="range-slider">Number of Goal Regions</Typography>
+            <Grid container spacing={3} alignItems="center">
+                <Grid item xs={3}>
+                    <Typography className={classes.typography}s id="range-slider">Number of Goal Regions</Typography>
                 </Grid>
 
-                <Grid item xs={4} className={classes.rangeSlider}>
+                <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
                     value={goalRegions}

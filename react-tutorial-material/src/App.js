@@ -1,15 +1,32 @@
 import React, { Component } from 'react'
-import NavBar from './navbar';
-import NestedItem from './nested-item';
-import Form from './form-control';
-import ScenarioCard from './scenario-card'
+import Scenarios from './pages/scenarios';
+import Submissions from './pages/submissions';
+import BenchmarkRanking from './pages/benchmark-ranking';
+import SimpleSlider from './pages/index';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 
 class App extends Component {
   render() {
     return (
-      <NavBar></NavBar>
-      )
+      <Router>
+      <div>
+        <Switch>
+          <Route exact path='/scenarios' component={Scenarios}></Route>
+          <Route exact path='/submissions' component={Submissions}></Route>
+          <Route exact path='/submissions/ranking/:benchmarkID' component={BenchmarkRanking}></Route>
+          <Route exact path='/' component={SimpleSlider}></Route>
+        </Switch>
+        </div>
+      </Router>
+    );
   }
 }
 
