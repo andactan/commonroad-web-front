@@ -79,7 +79,40 @@ export default function SubmissionDetails(){
     }
 
     const solutionDetails = {
-        
+        "total-cost": {
+            placeholer: "Total Cost",
+            value: 10000
+        },
+
+        "A": {
+            placeholder: "A",
+            value: 1
+        },
+
+        "SA": {
+            placeholder: "SA",
+            value: 1
+        },
+
+        "SR": {
+            placeholder: "SR",
+            value: 1
+        },
+
+        "LC": {
+            placeholder: "LC",
+            value: 1
+        },
+
+        "V": {
+            placeholder: "V",
+            value: 1
+        },
+
+        "O": {
+            placeholder: "O",
+            value: 1
+        }
     }
 
     return (
@@ -87,7 +120,8 @@ export default function SubmissionDetails(){
         <div>
             <NavBar></NavBar>
             <div style={{width: "80%", margin: "0 auto"}}>
-                <Typography variant="h4"> Submission Details </Typography>
+
+                <Typography variant="h4" style={{marginTop: "30px"}}> Submission Details </Typography>
                 <TableContainer style={{marginBottom: "50px"}}>
                     <Table style={{maxWidth: "500px"}}>
                         <TableBody>
@@ -112,6 +146,22 @@ export default function SubmissionDetails(){
                                     <TableRow key={key}>
                                         <TableCell align="left">{benchmarkDetails[key]["placeholder"]}</TableCell>
                                         <TableCell align="right">{benchmarkDetails[key]["value"]}</TableCell>
+                                    </TableRow>
+                                )
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+
+                <Typography variant="h4"> Solution Details </Typography>
+                <TableContainer>
+                    <Table style={{maxWidth: "500px"}}>
+                        <TableBody>
+                            {Object.keys(solutionDetails).map((key, index)=> {
+                                return (
+                                    <TableRow key={key}>
+                                        <TableCell align="left">{solutionDetails[key]["placeholder"]}</TableCell>
+                                        <TableCell align="right">{solutionDetails[key]["value"]}</TableCell>
                                     </TableRow>
                                 )
                             })}
