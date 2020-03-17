@@ -166,7 +166,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function BenchmarkRankigTable(props) {
 
-  const {rows} = props;
+
+  const rows = props.rows;
 
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
@@ -217,7 +218,7 @@ export default function BenchmarkRankigTable(props) {
                   return (
                     <TableRow
                       component={Link}
-                      to="/abcd"
+                      to={"/submissions/"+row.id+"/details"}
                       hover
                       tabIndex={-1}
                       key={row.benchmark_name+row.rank}

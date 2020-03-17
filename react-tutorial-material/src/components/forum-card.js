@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles, IconButton, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Button } from '@material-ui/core';
+import { makeStyles, IconButton, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Button, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
 
   }));
 
-export default function ScenarioCard(props){
+export default function ForumCard(props){
 
     const classes = useStyles();
     const style = {
@@ -69,7 +69,7 @@ export default function ScenarioCard(props){
         margin: "1.5% auto"
     };
 
-    const [expanded, setExpanded] = React.useState(true);
+    const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
     }
@@ -92,7 +92,7 @@ export default function ScenarioCard(props){
                 <CardHeader
                 className={classes.cardHeader}
                 classes={{action: classes.action}}
-                title="Example Scenario Card"
+                title="Example Forum Card"
                 action={
                     <IconButton
                         className={clsx(classes.iconButton, classes.expand, {
@@ -108,40 +108,7 @@ export default function ScenarioCard(props){
                 </CardHeader>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <div style={{float: "left", width: "50%"}}>
-                            <img src={require("../assets/placeholder.jpg")} style={style}></img>
-                        </div>
-
-                        <div style={buttonGroupStyle}> 
-                            <div >
-                                <Button style={buttonStyle} variant="contained" color="primary">Button</Button>
-                                <Button style={buttonStyle} variant="contained" color="primary">Button</Button>
-                            </div>
-                            
-                            <TableContainer className={classes.table}>
-                                <Table>
-                                    <TableHead>
-                                        <TableRow>
-                                            <TableCell>Version</TableCell>
-                                            <TableCell>Time Horizon</TableCell>
-                                            <TableCell>Initial Velocity</TableCell>
-                                            <TableCell>Static Obstacles</TableCell>
-                                            <TableCell>Dynamic Obstacles</TableCell>
-                                        </TableRow>
-                                    </TableHead>
-
-                                    <TableBody>
-                                        <TableRow>
-                                            <TableCell>{props.version}</TableCell>
-                                            <TableCell>{props.timeHorizon}</TableCell>
-                                            <TableCell>{props.initialVelocity}</TableCell>
-                                            <TableCell>{props.staticObs}</TableCell>
-                                            <TableCell>{props.dynamicObs}</TableCell>
-                                        </TableRow>
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </div>
+                        <Typography>This is an exemplary forum entry</Typography>
                     </CardContent>
                 </Collapse>
             </Card>

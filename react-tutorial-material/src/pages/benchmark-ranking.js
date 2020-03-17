@@ -7,16 +7,16 @@ import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
-function createData(rank, user, country, organization, method, algorithm, submission_date, cpu, processing_time, relative_cost) {
-    return { rank, user, country, organization, method, algorithm, submission_date, cpu, processing_time, relative_cost };
+function createData(id, rank, user, country, organization, method, algorithm, submission_date, cpu, processing_time, relative_cost) {
+    return { id, rank, user, country, organization, method, algorithm, submission_date, cpu, processing_time, relative_cost };
 }
 
 const rows = [
-    createData(1, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
-    createData(2, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
-    createData(3, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
-    createData(4, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
-    createData(5, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
+    createData("00", 1, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
+    createData("01", 2, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
+    createData("02", 3, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
+    createData("03", 4, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
+    createData("04", 5, "dog", "DE", "TUM", "Method Name", "Algo Name", "2019/02/02 22:22", 1, 150, "100%"),
 ];
 
 export default function BenchmarkRanking(props) {

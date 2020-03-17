@@ -21,67 +21,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function ScenarioFilter(){
+export default function ScenarioFilter(props){
 
+    console.log(props);
     const classes = useStyles();
-
-    const [version, setVersion] = React.useState(""); // single select
-    const [predType, setPredType] = React.useState(""); // single select
-
-    const [tags, setTags] = React.useState([]); // multiple select
-    const [obsTypes, setObsTypes] = React.useState([]); // multiple select
-    const [sources, setSources] = React.useState([]); // multiple select
-
-    const [timeHorizon, setTimeHorizon] = React.useState([20, 100]); // range slider
-    const [initialVelocity, setInitialVelocity] = React.useState([20, 100]); // range slider
-    const [staticObs, setStaticObs] = React.useState([20, 100]); // range slider
-    const [dynamicObs, setDynamicObs] = React.useState([20, 100]); // range slider
-    const [egoVehicle, setEgoVehicle] = React.useState([20, 100]); // range slider
-    const [goalRegions, setGoalRegions] = React.useState([20, 100]); // range slider
-
-    const handleSourcesChange = event => {
-        setSources(event.target.value);
-    }
-
-    const handleVersionChange = event => {
-        setVersion(event.target.value);
-    };
-
-    const handlePredChange = event => {
-        setPredType(event.target.value);
-    };
-
-    const handleTagChange = event => {
-        setTags(event.target.value);
-    };
-
-    const handleObsTypesChange = event => {
-        setObsTypes(event.target.value);
-    };
-
-    const handleTimeHorizonChange = (event, newValue) => {
-        setTimeHorizon(newValue);
-    };
-
-    const handleInitialVelocityChange = (event, newValue) => {
-        setInitialVelocity(newValue);
-    };
-
-    const handleStaticObsChange = (event, newValue) => {
-        setStaticObs(newValue);
-    };
-
-    const handleDynamicObsChange = (event, newValue) => {
-        setDynamicObs(newValue);
-    };
-
-    const handleEgoVehicleChange = (event, newValue) => {
-        setEgoVehicle(newValue);
-    };
-
-    const handleGoalRegionsChange = (event, newValue) => {
-        setGoalRegions(newValue);
-    };
 
     return (
         <form action="submit">
@@ -92,8 +35,8 @@ export default function ScenarioFilter(){
                 </Grid>
                 <Grid item  xs={6}>
                     <Select 
-                    value={version} 
-                    onChange={handleVersionChange} 
+                    value={props.version} 
+                    onChange={props.handleVersionChange} 
                     className={classes.select}
                     MenuProps={{
                         getContentAnchorEl: null,
@@ -115,8 +58,8 @@ export default function ScenarioFilter(){
                 </Grid>
                 <Grid item xs={6}>
                     <Select 
-                    value={predType} 
-                    onChange={handlePredChange} 
+                    value={props.predType} 
+                    onChange={props.handlePredChange} 
                     className={classes.select}
                     MenuProps={{
                         getContentAnchorEl: null,
@@ -139,8 +82,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6}>
                     <Select
                     multiple
-                    value={tags} 
-                    onChange={handleTagChange}
+                    value={props.tags} 
+                    onChange={props.handleTagChange}
                     className={classes.select}
                     MenuProps={{
                         getContentAnchorEl: null,
@@ -171,8 +114,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6}>
                     <Select
                     multiple
-                    value={obsTypes} 
-                    onChange={handleObsTypesChange}
+                    value={props.obsTypes} 
+                    onChange={props.handleObsTypesChange}
                     className={classes.select}
                     MenuProps={{
                         getContentAnchorEl: null,
@@ -204,8 +147,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6}>
                     <Select
                     multiple
-                    value={sources}
-                    onChange={handleSourcesChange}
+                    value={props.sources}
+                    onChange={props.handleSourcesChange}
                     className={classes.select}
                     MenuProps={{
                         getContentAnchorEl: null,
@@ -239,8 +182,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
-                    value={timeHorizon}
-                    onChange={handleTimeHorizonChange}
+                    value={props.timeHorizon}
+                    onChange={props.handleTimeHorizonChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     ></Slider>
@@ -256,8 +199,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
-                    value={initialVelocity}
-                    onChange={handleInitialVelocityChange}
+                    value={props.initialVelocity}
+                    onChange={props.handleInitialVelocityChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     ></Slider>
@@ -273,8 +216,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
-                    value={staticObs}
-                    onChange={handleStaticObsChange}
+                    value={props.staticObs}
+                    onChange={props.handleStaticObsChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     ></Slider>
@@ -290,8 +233,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
-                    value={dynamicObs}
-                    onChange={handleDynamicObsChange}
+                    value={props.dynamicObs}
+                    onChange={props.handleDynamicObsChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     ></Slider>
@@ -307,8 +250,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
-                    value={egoVehicle}
-                    onChange={handleEgoVehicleChange}
+                    value={props.egoVehicle}
+                    onChange={props.handleEgoVehicleChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     ></Slider>
@@ -324,8 +267,8 @@ export default function ScenarioFilter(){
                 <Grid item xs={6} className={classes.rangeSlider}>
                     <Slider
                     max={181}
-                    value={goalRegions}
-                    onChange={handleGoalRegionsChange}
+                    value={props.goalRegions}
+                    onChange={props.handleGoalRegionsChange}
                     valueLabelDisplay="auto"
                     aria-labelledby="range-slider"
                     ></Slider>

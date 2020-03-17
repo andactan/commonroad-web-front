@@ -2,7 +2,8 @@ import React from 'react';
 import NavBar from '../components/navbar';
 import { Table, TableHead, TableContainer, TableRow, TableBody, TableCell, Typography } from '@material-ui/core';
 
-export default function SubmissionDetails(){
+export default function SubmissionDetails(props){
+
 
     const submissionDetails = {
         "submission-id": {
@@ -119,55 +120,65 @@ export default function SubmissionDetails(){
         
         <div>
             <NavBar></NavBar>
-            <div style={{width: "80%", margin: "0 auto"}}>
 
-                <Typography variant="h4" style={{marginTop: "30px"}}> Submission Details </Typography>
-                <TableContainer style={{marginBottom: "50px"}}>
-                    <Table style={{maxWidth: "500px"}}>
-                        <TableBody>
-                            {Object.keys(submissionDetails).map((key, index)=> {
-                                return (
-                                    <TableRow key={key}>
-                                        <TableCell align="left">{submissionDetails[key]["placeholder"]}</TableCell>
-                                        <TableCell align="right">{submissionDetails[key]["value"]}</TableCell>
-                                    </TableRow>
-                                )
-                            })}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+            <div style={{display: "flex", justifyContent: "space-evenly", marginTop: "30px"}}>
+                <div>
+                    <Typography variant="h4"> Submission Details </Typography>
+                    <TableContainer>
+                        <Table>
+                            <TableBody>
+                                {Object.keys(submissionDetails).map((key, index)=> {
+                                    return (
+                                        <TableRow key={key}>
+                                            <TableCell align="left">{submissionDetails[key]["placeholder"]}</TableCell>
+                                            <TableCell align="right">{submissionDetails[key]["value"]}</TableCell>
+                                        </TableRow>
+                                    )
+                                })}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
+
+                <div>
+                    <Typography variant="h4"> Benchmark Details </Typography>
+                    <TableContainer>
+                        <Table>
+                            <TableBody>
+                                {Object.keys(benchmarkDetails).map((key, index)=> {
+                                    return (
+                                        <TableRow key={key}>
+                                            <TableCell align="left">{benchmarkDetails[key]["placeholder"]}</TableCell>
+                                            <TableCell align="right">{benchmarkDetails[key]["value"]}</TableCell>
+                                        </TableRow>
+                                    )
+                                })}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
                 
-                <Typography variant="h4"> Benchmark Details </Typography>
-                <TableContainer>
-                    <Table style={{maxWidth: "500px"}}>
-                        <TableBody>
-                            {Object.keys(benchmarkDetails).map((key, index)=> {
-                                return (
-                                    <TableRow key={key}>
-                                        <TableCell align="left">{benchmarkDetails[key]["placeholder"]}</TableCell>
-                                        <TableCell align="right">{benchmarkDetails[key]["value"]}</TableCell>
-                                    </TableRow>
-                                )
-                            })}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-
-                <Typography variant="h4"> Solution Details </Typography>
-                <TableContainer>
-                    <Table style={{maxWidth: "500px"}}>
-                        <TableBody>
-                            {Object.keys(solutionDetails).map((key, index)=> {
-                                return (
-                                    <TableRow key={key}>
-                                        <TableCell align="left">{solutionDetails[key]["placeholder"]}</TableCell>
-                                        <TableCell align="right">{solutionDetails[key]["value"]}</TableCell>
-                                    </TableRow>
-                                )
-                            })}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+            </div>
+            <div style={{display: "flex", justifyContent: "space-evenly", marginTop: "30px"}}>
+                
+                
+                <div>                  
+                    <Typography variant="h4"> Solution Details </Typography>
+                    <TableContainer>
+                        <Table style={{maxWidth: "500px"}}>
+                            <TableBody>
+                                {Object.keys(solutionDetails).map((key, index)=> {
+                                    return (
+                                        <TableRow key={key}>
+                                            <TableCell align="left">{solutionDetails[key]["placeholder"]}</TableCell>
+                                            <TableCell align="right">{solutionDetails[key]["value"]}</TableCell>
+                                        </TableRow>
+                                    )
+                                })}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </div>
             </div>
         </div>
     )

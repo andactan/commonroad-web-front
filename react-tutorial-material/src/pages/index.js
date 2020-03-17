@@ -5,6 +5,8 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Navbar from '../components/navbar';
+import ForumCard from '../components/forum-card';
+import { Typography } from '@material-ui/core';
  
 export default class SimpleSlider extends React.Component {
   render() {
@@ -25,12 +27,31 @@ export default class SimpleSlider extends React.Component {
                 </IconButton>
             )}
             initialSlideHeight="50px"
-            style={{width: "200px", margin: "0 auto"}}
+            style={{width: "300px", margin: "0 auto"}}
             >
                 <img src="https://via.placeholder.com/400/ffffff/c0392b/&text=slide1" />
                 <img src="https://via.placeholder.com/400/ffffff/c0392b/&text=slide2" />
                 <img src="https://via.placeholder.com/400/ffffff/c0392b/&text=slide3" />
             </Carousel>
+        </div>
+
+        <div style={{width:"70%", margin: "0 auto", paddingTop: "40px"}}>
+            <Typography variant="h2">
+                Welcome to CommonRoad
+            </Typography>
+
+            <Typography>
+            CommonRoad is a collection of composable benchmarks for motion planning on roads. 
+            This website presents our benchmark collection and provides researchers with a means of evaluating and 
+            comparing their motion planners. For further information, read up on the introduction below. 
+            Also, have a look at our scenarios.
+            </Typography>
+        </div>
+
+        <div style={{width:"70%", margin: "0 auto", paddingTop: "40px"}}>
+            <ForumCard></ForumCard>
+            <ForumCard></ForumCard>
+            <ForumCard></ForumCard> 
         </div>
         </div>
     );

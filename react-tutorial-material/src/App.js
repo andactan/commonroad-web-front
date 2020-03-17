@@ -4,7 +4,6 @@ import Submissions from './pages/submissions';
 import BenchmarkRanking from './pages/benchmark-ranking';
 import SimpleSlider from './pages/index';
 import SubmissionDetails from './pages/submission-details';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,7 +23,7 @@ class App extends Component {
           <Route exact path='/submissions' component={Submissions}></Route>
           <Route exact path='/submissions/ranking/:benchmarkID' component={BenchmarkRanking}></Route>
           <Route exact path='/' component={SimpleSlider}></Route>
-          <Route exact path="/submission_details" component={SubmissionDetails}></Route>
+          <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
         </Switch>
         </div>
       </Router>

@@ -9,6 +9,8 @@ import Logo from './logo';
 import {  Button, MenuItem, Menu } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
+import NavBarItem from './navbar-item'
+
 const drawerWidth = '25%';
 
 const useStyles = makeStyles(theme => ({
@@ -102,252 +104,177 @@ export default function NavBar() {
     /* navigation links */
     const documentationLinks = {
       vehicleModel: {
-        placeholder: "Vehicle Model Documentation",
+        type: "a",
+        text: "Vehicle Model Documentation",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/blob/master/vehicleModels_commonRoad.pdf",
       },
 
       costFunction: {
-        placeholder: "Cost Function Documentation",
+        type: "a",
+        text: "Cost Function Documentation",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-cost-functions/blob/master/costFunctions_commonRoad.pdf"
       },
       
       xmlFormat: {
-        placeholder: "XML Format Documentation",
+        type: "a",
+        text: "XML Format Documentation",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-scenarios/blob/master/documentation/XML_commonRoad.pdf"
       },
 
       xmlSchema: {
-        placeholder: "XML Schema Definition",
+        type: "a",
+        text: "XML Schema Definition",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-scenarios/blob/master/documentation/XML_commonRoad_XSD.xsd"
       },
 
       commonroadDoc: {
-        placeholder: "CommonRoad_IO Documentation",
+        type: "a",
+        text: "CommonRoad_IO Documentation",
         href: "https://commonroad.in.tum.de/static/docs/commonroad-io/index.html"
       },
 
       driveToLanelet: {
-        placeholder: "OpenDRIVE to Lanelet Converter Documentation",
+        type: "a",
+        text: "OpenDRIVE to Lanelet Converter Documentation",
         href: "https://commonroad.in.tum.de/static/docs/opendrive2lanelet/index.html"
       },
 
       collisionChecker: {
-        placeholder: "Collision Checker Documentation",
+        type: "a",
+        text: "Collision Checker Documentation",
         href: "https://commonroad.in.tum.de/static/docs/collision-checker/index.html"
       },
 
       commonSumo: {
-        placeholder: "CommonRoad-SUMO Interface",
+        type: "a",
+        text: "CommonRoad-SUMO Interface",
         href: "https://commonroad.in.tum.de/static/docs/commonroad-sumo-interface/index.html"
       },
 
       commonSearch: {
-        placeholder: "CommonRoad Search: Sampling-based Motion Planning",
+        type: "a",
+        text: "CommonRoad Search: Sampling-based Motion Planning",
         href: "https://commonroad.in.tum.de/static/docs/commonroad-search/index.html"
       }
     }
 
     const toolsLinks = {
       commonPyPi: {
-        placeholder: "CommonRoad_io",
+        type: "a",
+        text: "CommonRoad_io",
         href: "https://pypi.org/project/commonroad-io/"
       },
 
       collisionChecker: {
-        placeholder: "Collision Checker",
+        type: "a",
+        text: "Collision Checker",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-collision-checker"
       },
 
       commonSumo: {
-        placeholder: "CommonRoad-SUMO Interface",
+        type: "a",
+        text: "CommonRoad-SUMO Interface",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-sumo-interface"
       },
 
       driveToLanelet: {
-        placeholder: "OpenDRIVE to Lanelet Converter",
+        type: "a",
+        text: "OpenDRIVE to Lanelet Converter",
         href: "https://pypi.org/project/opendrive2lanelet/"
       },
 
       commonSearch: {
-        placeholder: "CommonRoad Search: Sampling-based Motion Planning",
+        type: "a",
+        text: "CommonRoad Search: Sampling-based Motion Planning",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-search"
       },
 
       spot: {
-        placeholder: "SPOT",
+        type: "a",
+        text: "SPOT",
         href: "http://koschi.gitlab.io/spot/"
       },
 
       vehicleModelMATLAB: {
-        placeholder: "Vehicle Models for MATLAB",
+        type: "a",
+        text: "Vehicle Models for MATLAB",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/MATLAB"
       },
 
       vehicleModelPython: {
-        placeholder: "Vehicle Models for Python",
+        type: "a",
+        text: "Vehicle Models for Python",
         href: "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/Python"
       }
     }
 
-    /* set distinct anchor elements for each menu */
-    const [documentationAnchorEl, setDocumentationAnchorEl] = React.useState(null);
-    const [toolsAnchorEl, setToolsAnchorEl] = React.useState(null);
-    const [scenariosAnchorEl, setScenariosAnchorEl] = React.useState(null);
-    const [commAnchorEl, setCommAnchorEl] = React.useState(null);
-    
-    /* Click handlers */
-    const handleDocumentationClick = event => {
-      setDocumentationAnchorEl(event.currentTarget)
+    const scenariosLinks = {
+      repo: {
+        type: "a",
+        text: "Repository",
+        href: "https://gitlab.lrz.de/tum-cps/commonroad-scenarios"
+
+      },
+
+      scenarios: {
+        type: "link",
+        text: "Scenarios and Visualizations",
+        to: "/scenarios"
+      },
+
+      ranking: {
+        type: "link",
+        text: "Submissions and Ranking",
+        to: "/submissions"
+      }
     }
 
-    const handleToolsClick = event => {
-      setToolsAnchorEl(event.currentTarget);
-    }
+    const communityLinks = {
+      forum: {
+        type: "a",
+        text: "Forum",
+        href: "#"
+      },
 
-    const handleScenariosClick = event => {
-      setScenariosAnchorEl(event.currentTarget);
-    }
+      teachingMaterial: {
+        type: "link",
+        text: "Teaching Material",
+        to: "/"
+      },
 
-    const handleCommClick = event => {
-      setCommAnchorEl(event.currentTarget);
-    }
-    
-    /* Close handlers */
-    const handleDocumentationClose = () => {
-      setDocumentationAnchorEl(null);
-    }
+      intern: {
+        type: "link",
+        text: "Internship Opportunities",
+        to: "/"
+      },
 
-    const handleToolsClose = () => {
-      setToolsAnchorEl(null);
+      team: {
+        type: "link",
+        text: "Team",
+        to: "/"
+      }
     }
-
-    const handleScenariosClose = () => {
-      setScenariosAnchorEl(null);
-    }
-
-    const handleCommClose = () => {
-      setCommAnchorEl(null);
-    }
-
 
     return (
         <div>
             <AppBar position="static">
                 <Toolbar className={classes.toolBar} variant="dense">
+                  <Link to="/" style={{textDecoration: "none", color: "inherit"}}>
                     <Logo></Logo>
-
+                  </Link>
+                  
+                    
                     {/* Documentation Menu */}
-                    <Button 
-                      aria-controls="documentation" 
-                      className={classes.menuButton} 
-                      onClick={handleDocumentationClick}
-                      endIcon={<ArrowDropDownIcon></ArrowDropDownIcon>}
-                      >
-                       Documentation </Button>
-                    <Menu
-                      id="documentation" 
-                      anchorEl={documentationAnchorEl} 
-                      keepMounted 
-                      onClose={handleDocumentationClose} 
-                      open={Boolean(documentationAnchorEl)} 
-                      getContentAnchorEl={null} 
-                      anchorOrigin={{vertical: "bottom", horizontal: "left"}}>
+                    <NavBarItem id="documentation" buttonText="Documentation" links={documentationLinks}></NavBarItem>
+                    <NavBarItem id="tutorials" buttonText="Tutorials"></NavBarItem>
+                    <NavBarItem id="tools" buttonText="Tools" links={toolsLinks}></NavBarItem>
+                    <NavBarItem id="scenarios" buttonText="Scenarios" links={scenariosLinks}></NavBarItem>
+                    <NavBarItem id="publications" buttonText="Publications"></NavBarItem>
+                    <NavBarItem id="community" buttonText="Community" links={communityLinks}></NavBarItem>
 
-                      {Object.keys(documentationLinks).map((key, index) => {
-                        return (
-                        <a className={classes.a} href={documentationLinks[key]["href"]} target="_blank">
-                          <MenuItem className={classes.menuItem}  onClick={handleDocumentationClose}>
-                            {documentationLinks[key]["placeholder"]}
-                          </MenuItem>
-                        </a>
-                        
-                        )})}
-                    </Menu> 
+                    
 
-                    {/* Tutorials Menu */}
-                    <Button aria-controls="tutorials" className={classes.menuButton}> Tutorials </Button>
-
-                    {/* Tools Menu */}
-                    <Button aria-controls="tools" 
-                      className={classes.menuButton} 
-                      onClick={handleToolsClick} 
-                      endIcon={<ArrowDropDownIcon></ArrowDropDownIcon>}> 
-                    Tools </Button>
-                    <Menu 
-                      id="tools" 
-                      anchorEl={toolsAnchorEl} 
-                      keepMounted 
-                      onClose={handleToolsClose} 
-                      open={Boolean(toolsAnchorEl)} 
-                      getContentAnchorEl={null} 
-                      anchorOrigin={{vertical: "bottom", horizontal: "left"}}>
-
-                      {Object.keys(toolsLinks).map((key, index) => {
-                        return (
-                        <a className={classes.a} href={toolsLinks[key]["href"]} target="_blank">
-                          <MenuItem className={classes.menuItem}  onClick={handleDocumentationClose}>
-                            {toolsLinks[key]["placeholder"]}
-                          </MenuItem>
-                        </a>
-                        
-                        )})}
-
-                    </Menu>
-
-                    {/* Scenarios menu -dropdown*/}
-                    <Button aria-controls="scenarios" 
-                      className={classes.menuButton} 
-                      onClick={handleScenariosClick}
-                      endIcon={<ArrowDropDownIcon></ArrowDropDownIcon>}
-                      > Scenarios </Button>
-                    <Menu
-                      id="scenarios"
-                      anchorEl={scenariosAnchorEl}
-                      keepMounted
-                      onClose={handleScenariosClose}
-                      open={Boolean(scenariosAnchorEl)}
-                      getContentAnchorEl={null}
-                      anchorOrigin={{vertical: "bottom", horizontal: "left"}}
-                    >
-                      <a className={classes.a} href="https://gitlab.lrz.de/tum-cps/commonroad-scenarios" target="_blank">
-                        <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Repository </MenuItem>
-                      </a>
-
-                      <Link to="/submissions" style={{textDecoration: "none", color: "inherit"}}> 
-                        <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Ranking </MenuItem> 
-                      </Link>
-
-                      <Link to="/scenarios" style={{textDecoration: "none", color: "inherit"}}> 
-                        <MenuItem className={classes.menuItem} onClick={handleScenariosClose}> Visualization </MenuItem>
-                      </Link>
-                    </Menu>
-
-                    {/* Publications menu - single button */}
-                    <Button aria-controls="publications" className={classes.menuButton}> Publications </Button>
-
-                    {/* Community menu - dropdown*/}
-                    <Button 
-                      aria-controls="community" 
-                      className={classes.menuButton} 
-                      onClick={handleCommClick}
-                      endIcon={<ArrowDropDownIcon></ArrowDropDownIcon>}
-                      > 
-                      Community </Button>
-                    <Menu
-                      id="community"
-                      anchorEl={commAnchorEl}
-                      keepMounted
-                      onClose={handleCommClose}
-                      open={Boolean(commAnchorEl)}
-                      getContentAnchorEl={null}
-                      anchorOrigin={{vertical: "bottom", horizontal: "left"}}
-                      
-                    >
-                      <MenuItem className={classes.menuItem} onClick={handleCommClose}> Forum </MenuItem>
-                      <MenuItem className={classes.menuItem} onClick={handleCommClose}> Team </MenuItem>
-                      <MenuItem className={classes.menuItem} onClick={handleCommClose}> Internship Opportunity </MenuItem>
-                      <MenuItem className={classes.menuItem} onClick={handleCommClose}> Teaching Material - Search Algorithms </MenuItem>
-                    </Menu>
+               
                 </Toolbar>
             </AppBar>
         </div>
