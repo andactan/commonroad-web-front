@@ -271,6 +271,7 @@ export default function NavBar() {
                     <NavBarItem id="scenarios" buttonText="Scenarios" links={scenariosLinks}></NavBarItem>
                     <NavBarItem id="publications" buttonText="Publications"></NavBarItem>
                     <NavBarItem id="community" buttonText="Community" links={communityLinks}></NavBarItem>
+                    <Button href="signin" style={{marginLeft: "auto", color: "white"}}>Sign In</Button>
 
                     
 

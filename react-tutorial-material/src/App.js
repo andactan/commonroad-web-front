@@ -11,11 +11,27 @@ import {
   Link
 } from "react-router-dom";
 
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import './css/app.css'
+import SignIn from './pages/sign-in';
+import SignUp from './pages/sign-up';
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif'
+    ].join(','),
+  }
+});
 
 
 class App extends Component {
   render() {
     return (
+      <ThemeProvider theme={theme}>
       <Router>
       <div>
         <Switch>
@@ -24,9 +40,12 @@ class App extends Component {
           <Route exact path='/submissions/ranking/:benchmarkID' component={BenchmarkRanking}></Route>
           <Route exact path='/' component={SimpleSlider}></Route>
           <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
+          <Route exact path="/signin" component={SignIn}></Route>
+          <Route exact path="/signup" component={SignUp}></Route>
         </Switch>
         </div>
       </Router>
+      </ThemeProvider>
     );
   }
 }
