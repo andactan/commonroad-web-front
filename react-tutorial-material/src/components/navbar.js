@@ -255,6 +255,14 @@ export default function NavBar() {
       }
     }
 
+    const [logged, setLogged] = React.useState(false);
+    React.useEffect(() => {
+      const loginFlag = localStorage.getItem('IS_LOGGED_IN');
+      const loggedIn = !!loginFlag;
+      console.log("use effect did this: " + loggedIn);
+      setLogged(loggedIn);
+    })
+
     return (
         <div>
             <AppBar position="static">
@@ -271,7 +279,9 @@ export default function NavBar() {
                     <NavBarItem id="scenarios" buttonText="Scenarios" links={scenariosLinks}></NavBarItem>
                     <NavBarItem id="publications" buttonText="Publications"></NavBarItem>
                     <NavBarItem id="community" buttonText="Community" links={communityLinks}></NavBarItem>
-                    <Button href="signin" style={{marginLeft: "auto", color: "white"}}>Sign In</Button>
+                    <Button href="signin" style={{marginLeft: "auto", color: "white"}}>
+                      {logged ? "SIGNED IN" : "SIGN IN"}
+                    </Button>
 
                     
 

@@ -14,6 +14,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import NavBar from '../components/navbar';
 
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -47,15 +50,65 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function SignIn() {
-  const classes = useStyles();
+    const classes = useStyles();
+
+    const history = useHistory();
+
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [remember, setRemember] = React.useState(false);
+
+    const handleEmailChange = event => {
+        setEmail(event.target.value);
+    }
+
+    const handlePasswordChange = event => {
+        setPassword(event.target.value);
+    }
+
+    const handleRememberChange = () => {
+      setRemember(!remember);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const request = {
+          "email": email,
+          "password": password
+        }
+
+        console.log("Submitting => " + JSON.stringify(request));
+        axios.post(
+          "/api/token/",
+          request,
+          {withCredentials: true}
+        )
+        .then(response => {
+          console.log(response);
+
+          const refreshToken = response.data.refresh;
+          const accessToken = response.data.access;
+          
+          localStorage.setItem('LOGGED_IN_USER', email);
+          localStorage.setItem('AUTH_REFRESH_TOKEN', JSON.stringify(refreshToken));
+          localStorage.setItem('AUTH_ACCESS_TOKEN', JSON.stringify(accessToken));
+          localStorage.setItem('IS_LOGGED_IN', 'TRUE');
+
+          history.push("/");
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
 
   return (
       <div>
       <NavBar></NavBar>
       
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -63,8 +116,10 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
+            value={email}
+            onChange={handleEmailChange}
             variant="outlined"
             margin="normal"
             required
@@ -76,6 +131,8 @@ export default function SignIn() {
             autoFocus
           />
           <TextField
+            value={password}
+            onChange={handlePasswordChange}
             variant="outlined"
             margin="normal"
             required
@@ -87,7 +144,7 @@ export default function SignIn() {
             autoComplete="current-password"
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value={remember} onChange={handleRememberChange} color="primary" />}
             label="Remember me"
           />
           <Button

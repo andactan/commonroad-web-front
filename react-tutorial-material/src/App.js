@@ -16,6 +16,8 @@ import './css/app.css'
 import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
 
+import Registration from './pages/registration';
+
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
@@ -42,6 +44,7 @@ class App extends Component {
           <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
           <Route exact path="/signin" component={SignIn}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
+          <Route exact path="/register" component={Registration}></Route>
         </Switch>
         </div>
       </Router>
