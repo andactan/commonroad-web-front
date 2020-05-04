@@ -3,7 +3,7 @@ import React from 'react';
 import FileUpload from '../components/file-upload';
 import NavBar from '../components/navbar';
 
-import {  Typography, Card, CardContent, Collapse, Table, TableHead, TableContainer, TableCell, TableBody, TableRow } from '@material-ui/core';
+import {  Typography, Card, CardContent, Collapse, Table, TableHead, TableContainer, TableCell, TableBody, TableRow, Divider } from '@material-ui/core';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem from '@material-ui/lab/TreeItem';
@@ -34,18 +34,22 @@ const useStyles = makeStyles({
     },
 
     "item": {
-        flexBasis: "40%"
+        flexBasis: "45%"
+    },
+
+    "submission-format": {
+        marginTop: "20px"
     },
 
     "xml-formats": {
-        marginTop: "30px",
+        marginTop: "20px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between"
     },
 
     "cost-and-vehicle-models": {
-        marginTop: "30px",
+        marginTop: "20px",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between"
@@ -133,6 +137,7 @@ export default function NewSubmission(){
                         <FileUpload></FileUpload>
                     </div>
 
+
                     <div id="column-2" className={classes.item}>
                         <Typography variant="h4">Tutorial</Typography>
                         <Typography variant="body1">
@@ -143,7 +148,9 @@ export default function NewSubmission(){
                     </div>
                 </div>
 
-                <div id="submission-format">
+                <Divider variant="middle"></Divider>
+
+                <div id="submission-format" className={classes["submission-format"]}>
                     <Typography variant="h4">Submission Format</Typography>
                     <Typography variant="body1">
                         A compherensive introduction to CommonRoad benchmarks can be found in our paper. In short, a benchmark consists of
@@ -210,8 +217,36 @@ export default function NewSubmission(){
 
                                         <StyledTreeItem nodeId="4" label="mbTrajectory">
                                             <StyledTreeItem nodeId="4.1" label="mbState">
-                                                <StyledTreeItem nodeId="4.1.1" label="x:float"></StyledTreeItem>
-                                                <StyledTreeItem nodeId="4.1.2" label="..."></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.1" label="x: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.2" label="y: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.3" label="steeringAngle: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.4" label="velocity: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.5" label="orientation: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.6" label="yawRate: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.7" label="rollAngle: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.8" label="rollRate: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.9" label="pitchAngle: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.10" label="pitchRate: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.11" label="yVelocity: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.12" label="zPosition: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.13" label="zVelocity: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.14" label="rollAngleFront: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.15" label="rollRateFront: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.16" label="yVelocityFront: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.17" label="zPositionFront: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.18" label="zVelocityFront: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.19" label="rollAngleRear: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.20" label="rollRateRear: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.21" label="yVelocityRear: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.22" label="zPositionRear: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.23" label="zVelocityRear: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.24" label="leftFrontWheelAngularSpeed: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.25" label="rightFrontWheelAngularSpeed: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.26" label="leftRearWheelAngularSpeed: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.27" label="rightRearWheelAngularSpeed: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.28" label="deltaYf: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.29" label="deltaYr: float"></StyledTreeItem>
+                                                <StyledTreeItem nodeId="4.1.30" label="time: int"></StyledTreeItem>
                                             </StyledTreeItem>
                                         </StyledTreeItem>
 
