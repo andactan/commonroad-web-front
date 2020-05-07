@@ -11,6 +11,7 @@ import {
   TableSortLabel,
   Paper,
   TablePagination,
+  Button,
 } from "@material-ui/core";
 
 const tableHeads = [
@@ -41,6 +42,8 @@ const data = [
 ];
 
 export default function UserSubmissions() {
+
+  // states
   const [sortingOrder, setSortingOrder] = React.useState("asc");
   const [sortingColumn, setSortingColumn] = React.useState("Created");
   
@@ -49,6 +52,10 @@ export default function UserSubmissions() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [page, setPage] = React.useState(0);
 
+  const [submissions, setSubmissions] = React.useState(data);
+
+
+  // handlers
   const handleSortRequest = (column) => (event) => {
     const isAscending = sortingOrder === "asc" && sortingColumn === column;
 
@@ -67,7 +74,7 @@ export default function UserSubmissions() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = data.map((n) => n["ID"]);
+      const newSelected = submissions.map((n) => n["ID"]);
       setSelected(newSelected);
     }
     else {
@@ -98,11 +105,32 @@ export default function UserSubmissions() {
     setSelected(newSelected);
   }
 
+    const handleDeleteClick = event => {
+    
+      // traverse all removal candidates
+      for (let i=0; i < selected.length; i++){
+        const remove = selected[i];
+        const idx = data.findIndex(e => e["ID"] === remove);
+  
+        data.splice(idx, 1);
+      }
+      
+      setSubmissions(data);
+      setSelected([]);
+      console.log(submissions);
+    }
+  
+
   const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+    rowsPerPage - Math.min(rowsPerPage, submissions.length - page * rowsPerPage);
 
   return (
     <div>
+      <div id="button-group" style={{display: "flex", justifyContent: "flex-end"}}>
+        <Button variant="contained" color="primary" style={{width: "100px", marginLeft: "4px"}}>Publish</Button>
+        <Button variant="contained" color="secondary" style={{width: "100px", marginLeft: "4px"}} onClick={handleDeleteClick}>Delete</Button>
+        <Button variant="contained" style={{width: "100px", marginLeft: "4px", backgroundColor: "#D1CDCD"}}>Edit</Button>
+      </div>
       <Paper>
         <TableContainer>
           <Table>
@@ -110,7 +138,7 @@ export default function UserSubmissions() {
               <TableRow>
                 <TableCell padding="checkbox">
                   <Checkbox
-                   checked={data.length > 0 && selected.length === data.length}
+                   checked={submissions.length > 0 && selected.length === submissions.length}
                    onChange={handleSelectAllClick} 
                   />
                 </TableCell>
@@ -132,7 +160,7 @@ export default function UserSubmissions() {
             </TableHead>
 
             <TableBody>
-              {data
+              {submissions
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   
@@ -177,7 +205,7 @@ export default function UserSubmissions() {
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           page={page}
-          count={data.length}
+          count={submissions.length}
           rowsPerPage={rowsPerPage}
           onChangePage={handlePageChange}
           onChangeRowsPerPage={handleRowsPerPageChange}
