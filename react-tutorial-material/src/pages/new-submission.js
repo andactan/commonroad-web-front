@@ -176,7 +176,7 @@ export default function NewSubmission(){
                             <Card>
                                 <CardContent>
                                     <TreeView 
-                                    defaultExpanded={['1', '2', '3']} 
+                                    defaultExpanded={['1', '2', '3', '4']} 
                                     defaultCollapseIcon={<MinusSquare />}
                                     defaultExpandIcon={<PlusSquare />}
                                     defaultEndIcon={<CloseSquare />}>

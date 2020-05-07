@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -229,7 +228,6 @@ export default function SubmissionTable(props) {
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: (53) * emptyRows }}>
-                  <TableCell colSpan={6} />
                 </TableRow>
               )}
             </TableBody>
