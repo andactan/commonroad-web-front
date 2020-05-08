@@ -38,20 +38,25 @@ const data = [
   { ID: 7, Benchmark: 3213131 },
   { ID: 8, Benchmark: 3213131 },
   { ID: 9, Benchmark: 3213131 },
-  { ID: 10, Benchmark: 3213131 }
+  { ID: 10, Benchmark: 3213131 },
+  { ID: 11, Benchmark: 3213131 },
+  { ID: 12, Benchmark: 3213131 },
+  { ID: 13, Benchmark: 3213131 },
+  { ID: 14, Benchmark: 3213131 },
+  { ID: 15, Benchmark: 3213131 },
+  { ID: 16, Benchmark: 3213131 },
 ];
 
-export default function UserSubmissions() {
+export default function UserSubmissionsTable(props) {
+
+  //const data = props.data;
 
   // states
   const [sortingOrder, setSortingOrder] = React.useState("asc");
   const [sortingColumn, setSortingColumn] = React.useState("Created");
-  
   const [selected, setSelected] = React.useState([]);
-
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [page, setPage] = React.useState(0);
-
   const [submissions, setSubmissions] = React.useState(data);
 
 
@@ -117,6 +122,12 @@ export default function UserSubmissions() {
       
       setSubmissions(data);
       setSelected([]);
+
+      console.log((submissions.length / rowsPerPage) + 1);
+      if ((submissions.length / rowsPerPage) - 1 < page && page !== 0){
+        setPage(page-1);
+      }
+
       console.log(submissions);
     }
   
