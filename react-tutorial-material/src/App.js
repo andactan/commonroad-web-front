@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import './css/app.css'
+
+import React, { Component } from 'react';
 import Scenarios from './pages/scenarios';
 import Submissions from './pages/submissions';
 import BenchmarkRanking from './pages/benchmark-ranking';
@@ -12,14 +14,11 @@ import {
 } from "react-router-dom";
 
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
-import './css/app.css'
 import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
 
 import Registration from './pages/registration';
 import NewSubmission from './pages/new-submission';
-import UserSubmissionsTable from './components/user-submissions-table';
-
 import UserSubmissions from './pages/user-submissions';
 
 const theme = createMuiTheme({

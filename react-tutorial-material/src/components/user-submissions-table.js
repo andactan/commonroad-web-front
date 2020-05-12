@@ -23,10 +23,7 @@ const tableHeads = [
   "Cost",
   "CPU",
   "Processing Time",
-  "Processing Time (Normalized)",
   "Created",
-  "Country",
-  "Organization",
   "Method",
   "Algorithm",
   "Code URL",
@@ -48,8 +45,6 @@ const data = [
 ];
 
 export default function UserSubmissionsTable(props) {
-
-  //const data = props.data;
 
   // states
   const [sortingOrder, setSortingOrder] = React.useState("asc");
@@ -157,6 +152,7 @@ export default function UserSubmissionsTable(props) {
                   <TableCell
                     key={e}
                     sortDirection={sortingColumn === e ? sortingOrder : "asc"}
+                    style={{padding: "0"}}
                   >
                     <TableSortLabel
                       active={true}
@@ -194,10 +190,9 @@ export default function UserSubmissionsTable(props) {
                       </TableCell>
                       {tableHeads.map((e) => {
                         if (e in row) {
-                          console.log("anana sor");
-                          return <TableCell>{row[e]}</TableCell>;
+                          return <TableCell style={{padding: "0"}}>{row[e]}</TableCell>;
                         } else {
-                          return <TableCell>aaa</TableCell>;
+                          return <TableCell style={{padding: "0"}}>aaa</TableCell>;
                         }
                       })}
                     </TableRow>
@@ -206,7 +201,7 @@ export default function UserSubmissionsTable(props) {
 
               {emptyRows > 0 && (
                 <TableRow
-                  style={{ height: 53 * emptyRows, border: "white" }}
+                  style={{ height: 43.2 * emptyRows, border: "white" }}
                 ></TableRow>
               )}
             </TableBody>
