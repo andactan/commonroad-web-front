@@ -7,9 +7,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import Logo from './logo';
 import {  Button, MenuItem, Menu } from '@material-ui/core';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-import NavBarItem from './navbar-item'
+import NavBarItem from './navbar-item';
+import UserAccountMenu from './user-account-menu';
 
 const drawerWidth = '25%';
 
@@ -279,9 +279,11 @@ export default function NavBar() {
                     <NavBarItem id="scenarios" buttonText="Scenarios" links={scenariosLinks}></NavBarItem>
                     <NavBarItem id="publications" buttonText="Publications"></NavBarItem>
                     <NavBarItem id="community" buttonText="Community" links={communityLinks}></NavBarItem>
-                    <Button href="signin" style={{marginLeft: "auto", color: "white"}}>
-                      {logged ? "SIGNED IN" : "SIGN IN"}
-                    </Button>
+                    {logged  
+                      ? <UserAccountMenu style={{marginLeft: "auto"}}></UserAccountMenu>
+                      : <Button href="signin" style={{marginLeft: "auto", color: "white"}}></Button>
+                      }
+                    
 
                     
 
