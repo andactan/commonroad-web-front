@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Scenarios from './pages/scenarios';
 import Submissions from './pages/submissions';
 import BenchmarkRanking from './pages/benchmark-ranking';
-import SimpleSlider from './pages/index';
+import Index from './pages/index';
 import SubmissionDetails from './pages/submission-details';
 import {
   BrowserRouter as Router,
@@ -20,6 +20,7 @@ import SignUp from './pages/sign-up';
 import Registration from './pages/registration';
 import NewSubmission from './pages/new-submission';
 import UserSubmissions from './pages/user-submissions';
+import ImageGrid from './components/image-grid';
 
 const theme = createMuiTheme({
   typography: {
@@ -43,13 +44,13 @@ class App extends Component {
               <Route exact path='/scenarios' component={Scenarios}></Route>
               <Route exact path='/submissions' component={Submissions}></Route>
               <Route exact path='/submissions/ranking/:benchmarkID' component={BenchmarkRanking}></Route>
-              <Route exact path='/' component={SimpleSlider}></Route>
+              <Route exact path='/' component={Index}></Route>
               <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
               <Route exact path="/signin" component={SignIn}></Route>
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
               <Route exact path="/submissions/new" component={NewSubmission}></Route>
-              <Route exact path="/develop" component={UserSubmissions}></Route>
+              <Route exact path="/develop" component={ImageGrid}></Route>
             </Switch>
           </div>
         </Router>

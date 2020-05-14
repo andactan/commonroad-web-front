@@ -8,34 +8,35 @@ import Navbar from '../components/navbar';
 import ForumCard from '../components/forum-card';
 import { Typography } from '@material-ui/core';
  
-export default class SimpleSlider extends React.Component {
+export default class Index extends React.Component {
   render() {
     return (
         <div>
         <Navbar></Navbar>
-        <div style={{width:"70%", margin: "0 auto", paddingTop: "40px"}}>
-            <Carousel 
-            wrapAround={true}
-            renderCenterLeftControls={({previousSlide})=>(
+        <div style={{width:"70%", margin: "0 auto", paddingTop: "20px"}}>
+            <Carousel
+                heightMode="max"
+                wrapAround={true}
+                
+                renderCenterLeftControls={({previousSlide})=>(
                 <IconButton onClick={previousSlide} size="small" style={{outline: "none"}}>
                     <ArrowBackIosIcon></ArrowBackIosIcon>  
                 </IconButton>
             )}
-            renderCenterRightControls={({nextSlide})=>(
+                renderCenterRightControls={({nextSlide})=>(
                 <IconButton onClick={nextSlide} size="small" style={{outline: "none"}}>
                     <ArrowForwardIosIcon></ArrowForwardIosIcon>
                 </IconButton>
             )}
-            initialSlideHeight="50px"
-            style={{width: "300px", margin: "0 auto"}}
+               
             >
-                <img src="https://via.placeholder.com/400/ffffff/c0392b/&text=slide1" />
-                <img src="https://via.placeholder.com/400/ffffff/c0392b/&text=slide2" />
-                <img src="https://via.placeholder.com/400/ffffff/c0392b/&text=slide3" />
+                <img src={require("../assets/scenario.gif")} style={{width: "100%", margin: "auto", position: "absolute", top: "0", bottom: "0"}} />
+                <img src={require("../assets/scenario-2.gif")} style={{width: "100%", margin: "auto", position: "absolute", top: "0", bottom: "0"}}/>
+                <img src={require("../assets/scenario-3.gif")} style={{width: "100%", margin: "auto", position: "absolute", top: "0", bottom: "0"}}/>
             </Carousel>
         </div>
 
-        <div style={{width:"70%", margin: "0 auto", paddingTop: "40px"}}>
+        <div style={{width:"70%", margin: "0 auto", paddingTop: "70px"}}>
             <Typography variant="h2">
                 Welcome to CommonRoad
             </Typography>
