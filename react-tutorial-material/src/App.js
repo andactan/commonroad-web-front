@@ -19,8 +19,6 @@ import SignUp from './pages/sign-up';
 
 import Registration from './pages/registration';
 import NewSubmission from './pages/new-submission';
-import UserSubmissions from './pages/user-submissions';
-import ImageGrid from './components/image-grid';
 
 const theme = createMuiTheme({
   typography: {
@@ -50,7 +48,7 @@ class App extends Component {
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
               <Route exact path="/submissions/new" component={NewSubmission}></Route>
-              <Route exact path="/develop" component={ImageGrid}></Route>
+              <Route exact path="/develop" component={Scenarios}></Route>
             </Switch>
           </div>
         </Router>
