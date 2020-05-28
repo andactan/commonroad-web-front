@@ -1,0 +1,45 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
+const useStyles = makeStyles((theme) => ({
+
+  wrapper: {
+    top: "200px"
+  },
+
+  root: {
+    maxWidth: "100%",
+    margin: "0 auto",
+    background: "#F5F5F5"
+  },
+}));
+
+export default function BlogCard (props){
+  const classes = useStyles();
+
+  return (
+    <div>
+      <Card className={classes.root}>
+        <CardHeader
+          title="Shrimp and Something"
+          subheader="May 27, 2020"
+        />
+        <CardContent>
+          <Typography variant="subtitle1">
+            {props.text}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small" style={{marginLeft: "auto", outline: "none"}}> Continue Reading </Button>
+        </CardActions>
+      </Card>
+    </div>
+  )
+}

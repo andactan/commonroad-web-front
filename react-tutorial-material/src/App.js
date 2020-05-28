@@ -20,9 +20,14 @@ import SignUp from './pages/sign-up';
 import Registration from './pages/registration';
 import NewSubmission from './pages/new-submission';
 
+import ForumCardNew from './components/blog-card';
+
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
+      'Rubik',
+      'Muli',
+      'B612',
       'Roboto',
       '"Helvetica Neue"',
       'Arial',
@@ -48,7 +53,7 @@ class App extends Component {
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
               <Route exact path="/submissions/new" component={NewSubmission}></Route>
-              <Route exact path="/develop" component={Scenarios}></Route>
+              <Route exact path="/develop" component={ForumCardNew}></Route>
             </Switch>
           </div>
         </Router>
