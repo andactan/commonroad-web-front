@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 
+
 export default function ForumCard(props){
   const {poster, title, date} = props;
 

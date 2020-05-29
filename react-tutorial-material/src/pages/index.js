@@ -41,15 +41,24 @@ export default class Index extends React.Component {
                 <Typography variant="h2">
                     Welcome to CommonRoad
                 </Typography>
+                
+                <div style={{display: "flex"}}>
+                    <div id="welcome-text">
+                        <Typography>
+                            CommonRoad is a collection of composable benchmarks for motion planning on roads. 
+                            This website presents our benchmark collection and provides researchers with a means of evaluating and 
+                            comparing their motion planners. For further information, read up on the introduction below. 
+                            Also, have a look at our scenarios.
+                        </Typography>
+                    </div>
 
-                <Typography>
-                CommonRoad is a collection of composable benchmarks for motion planning on roads. 
-                This website presents our benchmark collection and provides researchers with a means of evaluating and 
-                comparing their motion planners. For further information, read up on the introduction below. 
-                Also, have a look at our scenarios.
-                </Typography>
+                    <div id="welcome-image">
+                    <img src={require('../assets/tutorial_preview.png')}></img>
+                    </div>
+                </div>
+                <Divider style={{marginTop: "40px"}}></Divider>
             </div>
-
+            
             <div id="blog-and-forum" style={{display: "flex", width:"70%", margin: "0 auto", paddingTop: "70px"}}>
                 <div style={{flexGrow: "5", marginRight: "10px"}}>
                     <Typography variant="h4"> News From CommonRoad </Typography>

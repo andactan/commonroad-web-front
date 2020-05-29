@@ -1,11 +1,4 @@
 import './css/app.css'
-
-import React, { Component } from 'react';
-import Scenarios from './pages/scenarios';
-import Submissions from './pages/submissions';
-import BenchmarkRanking from './pages/benchmark-ranking';
-import Index from './pages/index';
-import SubmissionDetails from './pages/submission-details';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,12 +6,22 @@ import {
   Link
 } from "react-router-dom";
 
+import React, { Component } from 'react';
+import Scenarios from './pages/scenarios';
+import Submissions from './pages/submissions';
+import BenchmarkRanking from './pages/benchmark-ranking';
+import Index from './pages/index';
+import SubmissionDetails from './pages/submission-details';
+import Index2 from './pages/index2';
+
+
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import SignIn from './pages/sign-in';
 import SignUp from './pages/sign-up';
 
 import Registration from './pages/registration';
 import NewSubmission from './pages/new-submission';
+import UserSubmissions from './pages/user-submissions';
 
 import ForumCardNew from './components/blog-card';
 
@@ -53,7 +56,8 @@ class App extends Component {
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
               <Route exact path="/submissions/new" component={NewSubmission}></Route>
-              <Route exact path="/develop" component={ForumCardNew}></Route>
+              <Route exact path="/submissions/user/cr" component={UserSubmissions}></Route>
+              <Route exact path="/develop" component={Index2}></Route>
             </Switch>
           </div>
         </Router>
