@@ -162,7 +162,7 @@ export default function NavBar() {
       commonPyPi: {
         type: "a",
         text: "CommonRoad_io",
-        href: "https://pypi.org/project/commonroad-io/"
+        href: "/commonroad_io"
       },
 
       collisionChecker: {

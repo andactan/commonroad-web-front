@@ -1,36 +1,26 @@
-import './css/app.css'
+import "./css/app.css";
 
-import React, { Component } from 'react';
-import Scenarios from './pages/scenarios';
-import Submissions from './pages/submissions';
-import BenchmarkRanking from './pages/benchmark-ranking';
-import Index from './pages/index';
-import SubmissionDetails from './pages/submission-details';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { Component } from "react";
+import Scenarios from "./pages/scenarios";
+import Submissions from "./pages/submissions";
+import BenchmarkRanking from "./pages/benchmark-ranking";
+import Index from "./pages/index";
+import SubmissionDetails from "./pages/submission-details";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
-import SignIn from './pages/sign-in';
-import SignUp from './pages/sign-up';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import SignIn from "./pages/sign-in";
+import SignUp from "./pages/sign-up";
 
-import Registration from './pages/registration';
-import NewSubmission from './pages/new-submission';
+import Registration from "./pages/registration";
+import NewSubmission from "./pages/new-submission";
+import CommonroadIo from "./pages/commonroad_io";
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: [
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif'
-    ].join(','),
-  }
+    fontFamily: ["Roboto", '"Helvetica Neue"', "Arial", "sans-serif"].join(","),
+  },
 });
-
 
 class App extends Component {
   render() {
@@ -39,16 +29,33 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
-              <Route exact path='/scenarios' component={Scenarios}></Route>
-              <Route exact path='/submissions' component={Submissions}></Route>
-              <Route exact path='/submissions/ranking/:benchmarkID' component={BenchmarkRanking}></Route>
-              <Route exact path='/' component={Index}></Route>
-              <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
+              <Route exact path="/scenarios" component={Scenarios}></Route>
+              <Route exact path="/submissions" component={Submissions}></Route>
+              <Route
+                exact
+                path="/submissions/ranking/:benchmarkID"
+                component={BenchmarkRanking}
+              ></Route>
+              <Route exact path="/" component={Index}></Route>
+              <Route
+                exact
+                path="/submissions/:id/details"
+                component={SubmissionDetails}
+              ></Route>
               <Route exact path="/signin" component={SignIn}></Route>
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
-              <Route exact path="/submissions/new" component={NewSubmission}></Route>
+              <Route
+                exact
+                path="/submissions/new"
+                component={NewSubmission}
+              ></Route>
               <Route exact path="/develop" component={Scenarios}></Route>
+              <Route
+                exact
+                path="/commonroad_io"
+                component={CommonroadIo}
+              ></Route>
             </Switch>
           </div>
         </Router>
