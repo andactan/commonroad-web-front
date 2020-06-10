@@ -14,90 +14,93 @@ import StatisticCard from '../components/statistic-card';
 export default class Index2 extends React.Component {
   render() {
     return (
-        <div>
+        <div style={{backgroundColor: "#FFFFFF"}}>
             <Navbar></Navbar>
-            <div style={{width:"70%", margin: "0 auto", paddingTop: "20px"}}>
-                <Carousel
-                    heightMode="max"
-                    wrapAround={true}
+            <div class="wrapper" style={{display: "flex", flexDirection: "row", justifyContent: "center", "alignItems": "center", paddingTop: "130px", width:"70%", margin: "0 auto"}}>
+              <div class="wrapper" style={{paddingTop: "30px"}}> {/** left div */}
+                <div>
+                    <Typography variant="h3" align="center" style={{fontWeight: "bold"}}>
+                        Welcome to CommonRoad
+                    </Typography>
                     
-                    renderCenterLeftControls={({previousSlide})=>(
-                    <IconButton onClick={previousSlide} size="small" style={{outline: "none"}}>
-                        <ArrowBackIosIcon></ArrowBackIosIcon>  
-                    </IconButton>
-                )}
-                    renderCenterRightControls={({nextSlide})=>(
-                    <IconButton onClick={nextSlide} size="small" style={{outline: "none"}}>
-                        <ArrowForwardIosIcon></ArrowForwardIosIcon>
-                    </IconButton>
-                )}
-                
-                >
-                    <img src={require("../assets/scenario.gif")} style={{width: "100%", margin: "auto", position: "absolute", top: "0", bottom: "0"}} />
-                    <img src={require("../assets/scenario-2.gif")} style={{width: "100%", margin: "auto", position: "absolute", top: "0", bottom: "0"}}/>
-                    <img src={require("../assets/scenario-3.gif")} style={{width: "100%", margin: "auto", position: "absolute", top: "0", bottom: "0"}}/>
-                </Carousel>
-
-                <Divider style={{marginTop: "40px"}}></Divider>
-            </div>
-
-            <div style={{width:"70%", margin: "0 auto", paddingTop: "50px"}}>
-                <Typography variant="h2" align="center">
-                    Welcome to CommonRoad
-                </Typography>
-                
-                <div style={{display: "flex"}}>
-                    <div id="welcome-text" style={{display: "flex", alignItems: "center"}}>
-                        <Typography>
-                            CommonRoad is a collection of composable benchmarks for motion planning on roads. 
-                            This website presents our benchmark collection and provides researchers with a means of evaluating and 
-                            comparing their motion planners. For further information, read up on the introduction below. 
-                            Also, have a look at our scenarios.
-                        </Typography>
-                    </div>
-
-                    <div id="welcome-image">
-                      <img src={require('../assets/static_img_cr_flowchart.svg')}></img>
-                    </div>
+                    <div style={{display: "flex", justifyContent: "center" , alignItems: "center", paddingTop: "1%"}}>
+                        <div id="welcome-text" style={{width: "70%"}}>
+                            <Typography align="center" style={{fontWeight: "500"}}>
+                                CommonRoad is a collection of composable benchmarks for motion planning on roads. 
+                                This website presents our benchmark collection and provides researchers with a means of evaluating and 
+                                comparing their motion planners. For further information, read up on the introduction below. 
+                                Also, have a look at our scenarios.
+                            </Typography>
+                        </div>
+                    </div>    
                 </div>
                 
-                <Divider style={{marginTop: "40px"}}></Divider>
+              </div>
+              
+              <div style={{width:"50%", margin: "0 auto", paddingTop: "20px"}}>
+                <img src={require("../assets/tutorial_preview.png")} />
+              </div>
+              <Divider style={{marginTop: "40px"}}></Divider>
             </div>
             
-            <div id="blog-and-forum" style={{display: "flex", width:"70%", margin: "0 auto", paddingTop: "50px", flexDirection: "column"}}>
-                <div>
-                    <Typography variant="h4" align="center"> News & Announcements </Typography>
-                    <Typography variant="body1" align="center"> Check out our latest news and announcements made in our blog</Typography>
-                    <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly", marginTop: "20px"}}>
-                      <BlogCard text="This is a blog post header"></BlogCard>
-                      <BlogCard text="This is a blog post header"></BlogCard>
-                      <BlogCard text="This is a blog post header"></BlogCard>
-                      <BlogCard text="This is a blog post header"></BlogCard>
-                    </div>
-                    
-                    <div style={{textAlign: "center", marginTop: "20px"}}>
-                      <Button style={{outline: "none", background: "#F8F8F8"}}>View More</Button>
-                    </div>
-                    
+            <div class="wrapper">
+              <div style={{width:"70%", margin: "0 auto", paddingTop: "100px"}}>
+                  <Typography variant="h3" align="center" style={{fontWeight: "bold"}}>
+                      Scenarios and Benchmarks
+                  </Typography>
 
-                    <Divider style={{marginTop: "40px"}}></Divider>
-                </div>
-
-                <div style={{marginTop: "50px"}}>
-                    <Typography variant="h4" align="center"> Resources and Community </Typography>
-                    <Typography variant="body1" align="center">CommonRoad has also a welcoming and open community and our ecosystem grows larger day by day.</Typography>
-                    <div style={{textAlign: "center", marginTop: "20px"}}>
-                      <Button style={{outline: "none", background: "#F8F8F8"}}>Go to Forum</Button>
-                    </div>
-                      <div style={{display: "flex", justifyContent: "space-around"}}>
-                        <StatisticCard style={{width:"20%"}} text="active users"></StatisticCard>
-                        <StatisticCard style={{width:"20%"}} text="scenarios"></StatisticCard>
-                        <StatisticCard style={{width:"20%"}} text="submissions"></StatisticCard>
+                  <div style={{display: "flex", justifyContent: "center" , alignItems: "center", paddingTop: "1%"}}>
+                      <div id="welcome-text" style={{width: "70%"}}>
+                          <Typography align="center" style={{fontWeight: "500"}}>
+                              CommonRoad makes autonomous driving scenarios more plausible and understandable
+                          </Typography>
                       </div>
-                    
-                    
-                    
-                    <Divider style={{marginTop: "40px", marginBottom: "20px"}}></Divider>
+                  </div>
+
+                  <div style={{width:"70%", margin: "0 auto", paddingTop: "20px"}}>
+                    <img src={require("../assets/scenario.gif")} />
+                  </div>
+                  
+                  <Divider style={{marginTop: "40px"}}></Divider>
+              </div>
+            </div>
+            
+            <div class="wrapper">
+              <div id="blog-and-forum" style={{display: "flex", width:"70%", margin: "0 auto", paddingTop: "50px", flexDirection: "column"}}>
+                  <div>
+                      <Typography variant="h3" align="center" style={{fontWeight: "bold"}}> News & Announcements </Typography>
+                      <Typography variant="body1" align="center" style={{fontWeight: "500"}}> Check out our latest news and announcements made in our blog</Typography>
+                      <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly", marginTop: "20px"}}>
+                        <BlogCard text="This is a blog post header"></BlogCard>
+                        <BlogCard text="This is a blog post header"></BlogCard>
+                        <BlogCard text="This is a blog post header"></BlogCard>
+                        <BlogCard text="This is a blog post header"></BlogCard>
+                      </div>
+                      
+                      <div style={{textAlign: "center", marginTop: "20px"}}>
+                        <Button variant="outlined" style={{outline: "none", background: "#1D3557", color: "white"}}>View More</Button>
+                      </div>
+                      
+
+                      <Divider style={{marginTop: "40px"}}></Divider>
+                  </div>
+                </div>
+                
+                <div>
+                  <div style={{marginTop: "50px"}}>
+                      <Typography variant="h3" align="center" style={{fontWeight: "bold"}}> Resources and Community </Typography>
+                      <Typography variant="body1" align="center" style={{fontWeight: "500"}}>CommonRoad has also a welcoming and open community and our ecosystem grows larger day by day.</Typography>
+                      <div style={{textAlign: "center", marginTop: "20px"}}>
+                        <Button variant="outlined" style={{outline: "none", background: "#1D3557", color: "white"}}>Go to Forum</Button>
+                      </div>
+                        <div style={{display: "flex", justifyContent: "space-around", marginTop: "20px"}}>
+                          <StatisticCard style={{width:"20%"}} text="active users"></StatisticCard>
+                          <StatisticCard style={{width:"20%"}} text="scenarios"></StatisticCard>
+                          <StatisticCard style={{width:"20%"}} text="submissions"></StatisticCard>
+                        </div>
+                      
+                      <Divider style={{marginTop: "40px"}}></Divider>
+                  </div>
                 </div>
 
             </div>

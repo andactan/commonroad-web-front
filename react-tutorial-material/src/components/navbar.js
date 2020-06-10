@@ -19,15 +19,16 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
     }),
   },
 
   toolBar: {
     flex: 1,
     justifyContent: "flex-start",
-    overflowX: "auto"
+    overflowX: "auto",
+    background: "#1D3557"
   },
 
   menuSelect: {

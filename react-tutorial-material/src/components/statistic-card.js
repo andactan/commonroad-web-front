@@ -8,7 +8,7 @@ export default function StatisticCard(props){
 
   return (
     <div>
-      <Card elevation={0}>
+      <Card elevation={1} style={{backgroundColor: "white"}}>
         <CardContent>
           <div style={{textAlign: "center"}}>
             <CountUp start={0} end={1000} duration={10} style={{fontSize: "70px", fontFamily: "Rubik", margin: "0 auto"}}></CountUp>

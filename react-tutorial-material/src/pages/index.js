@@ -8,7 +8,8 @@ import Navbar from '../components/navbar';
 import BlogCard from '../components/blog-card';
 import ForumCard from '../components/forum-card';
 import { Typography, Paper, Divider} from '@material-ui/core';
- 
+
+
 export default class Index extends React.Component {
   render() {
     return (

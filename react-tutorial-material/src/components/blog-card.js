@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: "0 auto",
     marginBottom: "5px",
-    background: "#F8F8F8"
+    backgroundColor: "white"
   },
 }));
 
@@ -26,7 +26,6 @@ export default function BlogCard (props){
       <Card className={classes.root}>
         <CardHeader
           title="Shrimp and Something"
-          subheader="May 27, 2020"
         />
         <CardContent>
           <Typography variant="subtitle1">

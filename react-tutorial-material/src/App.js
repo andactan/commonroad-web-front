@@ -22,15 +22,13 @@ import SignUp from './pages/sign-up';
 import Registration from './pages/registration';
 import NewSubmission from './pages/new-submission';
 import UserSubmissions from './pages/user-submissions';
+import Teaching from './pages/teaching';
+import Internship from './pages/internship';
 
-import ForumCardNew from './components/blog-card';
 
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      'Rubik',
-      'Muli',
-      'B612',
       'Roboto',
       '"Helvetica Neue"',
       'Arial',
@@ -50,13 +48,15 @@ class App extends Component {
               <Route exact path='/scenarios' component={Scenarios}></Route>
               <Route exact path='/submissions' component={Submissions}></Route>
               <Route exact path='/submissions/ranking/:benchmarkID' component={BenchmarkRanking}></Route>
-              <Route exact path='/' component={Index}></Route>
+              <Route exact path='/' component={Index2}></Route>
               <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
               <Route exact path="/signin" component={SignIn}></Route>
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
               <Route exact path="/submissions/new" component={NewSubmission}></Route>
               <Route exact path="/submissions/user/cr" component={UserSubmissions}></Route>
+              <Route exact path="/teaching" component={Teaching}></Route>
+              <Route exact path="/internship" component={Internship}></Route>
               <Route exact path="/develop" component={Index2}></Route>
             </Switch>
           </div>
