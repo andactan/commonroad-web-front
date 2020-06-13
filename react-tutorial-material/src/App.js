@@ -31,31 +31,15 @@ class App extends Component {
             <Switch>
               <Route exact path="/scenarios" component={Scenarios}></Route>
               <Route exact path="/submissions" component={Submissions}></Route>
-              <Route
-                exact
-                path="/submissions/ranking/:benchmarkID"
-                component={BenchmarkRanking}
-              ></Route>
+              <Route exact path="/submissions/ranking/:benchmarkID" component={BenchmarkRanking}></Route>
               <Route exact path="/" component={Index}></Route>
-              <Route
-                exact
-                path="/submissions/:id/details"
-                component={SubmissionDetails}
-              ></Route>
+              <Route exact path="/submissions/:id/details" component={SubmissionDetails}></Route>
               <Route exact path="/signin" component={SignIn}></Route>
               <Route exact path="/signup" component={SignUp}></Route>
               <Route exact path="/register" component={Registration}></Route>
-              <Route
-                exact
-                path="/submissions/new"
-                component={NewSubmission}
-              ></Route>
+              <Route exact path="/submissions/new" component={NewSubmission}></Route>
               <Route exact path="/develop" component={Scenarios}></Route>
-              <Route
-                exact
-                path="/commonroad_io"
-                component={CommonroadIo}
-              ></Route>
+              <Route exact path="/commonroad_io" component={CommonroadIo}></Route>
             </Switch>
           </div>
         </Router>
