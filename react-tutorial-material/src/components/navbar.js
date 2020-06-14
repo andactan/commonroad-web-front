@@ -19,15 +19,16 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
     }),
   },
 
   toolBar: {
     flex: 1,
     justifyContent: "flex-start",
-    overflowX: "auto"
+    overflowX: "auto",
+    background: "#1D3557"
   },
 
   menuSelect: {
@@ -160,9 +161,9 @@ export default function NavBar() {
 
     const toolsLinks = {
       commonPyPi: {
-        type: "a",
+        type: "link",
         text: "CommonRoad_io",
-        href: "/commonroad_io"
+        to: "/commonroad_io"
       },
 
       collisionChecker: {
@@ -172,39 +173,33 @@ export default function NavBar() {
       },
 
       commonSumo: {
-        type: "a",
+        type: "link",
         text: "CommonRoad-SUMO Interface",
-        href: "https://gitlab.lrz.de/tum-cps/commonroad-sumo-interface"
+        to: "/sumo_interface"
       },
 
       driveToLanelet: {
-        type: "a",
+        type: "link",
         text: "OpenDRIVE to Lanelet Converter",
-        href: "https://pypi.org/project/opendrive2lanelet/"
+        to: "/opendrive_lanelet_converter"
       },
 
       commonSearch: {
-        type: "a",
+        type: "link",
         text: "CommonRoad Search: Sampling-based Motion Planning",
-        href: "https://gitlab.lrz.de/tum-cps/commonroad-search"
+        to: "/commonroad_search"
       },
 
       spot: {
-        type: "a",
+        type: "link",
         text: "SPOT",
-        href: "http://koschi.gitlab.io/spot/"
+        to: "/spot"
       },
 
       vehicleModelMATLAB: {
-        type: "a",
-        text: "Vehicle Models for MATLAB",
-        href: "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/MATLAB"
-      },
-
-      vehicleModelPython: {
-        type: "a",
-        text: "Vehicle Models for Python",
-        href: "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/Python"
+        type: "link",
+        text: "Vehicle models and cost functions",
+        to: "/models_cost_functions"
       }
     }
 

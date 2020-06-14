@@ -60,7 +60,7 @@ export default function UserAccountMenu(props) {
           <MenuItem className={classes.menuItem} onClick={handleClose}>New Submission</MenuItem>
         </Link>
         
-        <Link style={{textDecoration: "none", color: "inherit"}} to="/develop">
+        <Link style={{textDecoration: "none", color: "inherit"}} to="/submissions/user/cr">
           <MenuItem className={classes.menuItem} onClick={handleClose}>My Submissions</MenuItem>
         </Link>
 
