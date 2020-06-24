@@ -11,6 +11,8 @@ import { Typography, Paper, Divider, Button, Grid} from '@material-ui/core';
 import CountUp from 'react-countup';
 import StatisticCard from '../components/statistic-card';
 
+import Menu from '../components/menu';
+ 
 export default class Index2 extends React.Component {
   render() {
     return (
