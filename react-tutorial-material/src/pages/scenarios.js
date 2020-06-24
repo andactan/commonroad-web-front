@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 let scenarioCards = [];
-for (let i=0; i < 2; i++){
+for (let i = 0; i < 2; i++) {
   const card = {
     version: '2018b',
     predType: 'Trajectory',
@@ -94,157 +94,157 @@ export default function Scenarios() {
 
 
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const [version, setVersion] = React.useState(""); // single select
-    const [predType, setPredType] = React.useState(""); // single select
+  const [version, setVersion] = React.useState(""); // single select
+  const [predType, setPredType] = React.useState(""); // single select
 
-    const [tags, setTags] = React.useState([]); // multiple select
-    const [obsTypes, setObsTypes] = React.useState([]); // multiple select
-    const [sources, setSources] = React.useState([]); // multiple select
+  const [tags, setTags] = React.useState([]); // multiple select
+  const [obsTypes, setObsTypes] = React.useState([]); // multiple select
+  const [sources, setSources] = React.useState([]); // multiple select
 
-    const [timeHorizon, setTimeHorizon] = React.useState([20, 100]); // range slider
-    const [initialVelocity, setInitialVelocity] = React.useState([20, 100]); // range slider
-    const [staticObs, setStaticObs] = React.useState([20, 100]); // range slider
-    const [dynamicObs, setDynamicObs] = React.useState([20, 100]); // range slider
-    const [egoVehicle, setEgoVehicle] = React.useState([20, 100]); // range slider
-    const [goalRegions, setGoalRegions] = React.useState([20, 100]); // range slider
-    
+  const [timeHorizon, setTimeHorizon] = React.useState([20, 100]); // range slider
+  const [initialVelocity, setInitialVelocity] = React.useState([20, 100]); // range slider
+  const [staticObs, setStaticObs] = React.useState([20, 100]); // range slider
+  const [dynamicObs, setDynamicObs] = React.useState([20, 100]); // range slider
+  const [egoVehicle, setEgoVehicle] = React.useState([20, 100]); // range slider
+  const [goalRegions, setGoalRegions] = React.useState([20, 100]); // range slider
 
-    const handleSourcesChange = event => {
-        setSources(event.target.value);
+
+  const handleSourcesChange = event => {
+    setSources(event.target.value);
+  }
+
+  const handleVersionChange = event => {
+    setVersion(event.target.value);
+  };
+
+  const handlePredChange = event => {
+    setPredType(event.target.value);
+  };
+
+  const handleTagChange = event => {
+    setTags(event.target.value);
+  };
+
+  const handleObsTypesChange = event => {
+    setObsTypes(event.target.value);
+  };
+
+  const handleTimeHorizonChange = (event, newValue) => {
+    setTimeHorizon(newValue);
+  };
+
+  const handleInitialVelocityChange = (event, newValue) => {
+    setInitialVelocity(newValue);
+  };
+
+  const handleStaticObsChange = (event, newValue) => {
+    setStaticObs(newValue);
+  };
+
+  const handleDynamicObsChange = (event, newValue) => {
+    setDynamicObs(newValue);
+  };
+
+  const handleEgoVehicleChange = (event, newValue) => {
+    setEgoVehicle(newValue);
+  };
+
+  const handleGoalRegionsChange = (event, newValue) => {
+    setGoalRegions(newValue);
+  };
+
+  const filterProps = {
+    version: version,
+    predType: predType,
+    tags: tags,
+    obsTypes: obsTypes,
+    sources: sources,
+    timeHorizon: timeHorizon,
+    initialVelocity: initialVelocity,
+    staticObs: staticObs,
+    dynamicObs: dynamicObs,
+    egoVehicle: egoVehicle,
+    goalRegions: goalRegions,
+    handleSourcesChange: handleSourcesChange,
+    handleVersionChange: handleVersionChange,
+    handlePredChange: handlePredChange,
+    handleTagChange: handleTagChange,
+    handleObsTypesChange: handleObsTypesChange,
+    handleTimeHorizonChange: handleTimeHorizonChange,
+    handleInitialVelocityChange: handleInitialVelocityChange,
+    handleStaticObsChange: handleStaticObsChange,
+    handleDynamicObsChange: handleDynamicObsChange,
+    handleEgoVehicleChange: handleEgoVehicleChange,
+    handleGoalRegionsChange: handleGoalRegionsChange
+  }
+
+  let queryResult = [];
+  if (version && predType && tags.length && obsTypes.length) {
+    queryResult = scenarioCards.find(element => (
+      element.version === version &&
+      element.predType === predType &&
+      element.tags.filter(x => tags.includes(x)).length &&
+      element.obsTypes.filter(x => obsTypes.includes(x))
+    ))
+
+    if (!queryResult) {
+      queryResult = []
     }
-
-    const handleVersionChange = event => {
-        setVersion(event.target.value);
-    };
-
-    const handlePredChange = event => {
-        setPredType(event.target.value);
-    };
-
-    const handleTagChange = event => {
-        setTags(event.target.value);
-    };
-
-    const handleObsTypesChange = event => {
-        setObsTypes(event.target.value);
-    };
-
-    const handleTimeHorizonChange = (event, newValue) => {
-        setTimeHorizon(newValue);
-    };
-
-    const handleInitialVelocityChange = (event, newValue) => {
-        setInitialVelocity(newValue);
-    };
-
-    const handleStaticObsChange = (event, newValue) => {
-        setStaticObs(newValue);
-    };
-
-    const handleDynamicObsChange = (event, newValue) => {
-        setDynamicObs(newValue);
-    };
-
-    const handleEgoVehicleChange = (event, newValue) => {
-        setEgoVehicle(newValue);
-    };
-
-    const handleGoalRegionsChange = (event, newValue) => {
-        setGoalRegions(newValue);
-    };
-
-    const filterProps = {
-      version: version,
-      predType: predType,
-      tags: tags,
-      obsTypes: obsTypes,
-      sources: sources,
-      timeHorizon: timeHorizon,
-      initialVelocity: initialVelocity,
-      staticObs: staticObs,
-      dynamicObs: dynamicObs,
-      egoVehicle: egoVehicle,
-      goalRegions: goalRegions,
-      handleSourcesChange:  handleSourcesChange,
-      handleVersionChange: handleVersionChange,
-      handlePredChange: handlePredChange,
-      handleTagChange: handleTagChange,
-      handleObsTypesChange: handleObsTypesChange,
-      handleTimeHorizonChange: handleTimeHorizonChange,
-      handleInitialVelocityChange: handleInitialVelocityChange,
-      handleStaticObsChange: handleStaticObsChange,
-      handleDynamicObsChange: handleDynamicObsChange,
-      handleEgoVehicleChange: handleEgoVehicleChange,
-      handleGoalRegionsChange: handleGoalRegionsChange
-    }
-
-    let queryResult = [];
-    if (version && predType && tags.length && obsTypes.length) {
-      queryResult = scenarioCards.find(element => (
-        element.version === version &&
-        element.predType === predType &&
-        element.tags.filter(x => tags.includes(x)).length &&
-        element.obsTypes.filter(x => obsTypes.includes(x))
-        ))
-
-      if (!queryResult) {
-        queryResult = []
-      }
-    }
-    else {
-      queryResult = scenarioCards;
-    }
+  }
+  else {
+    queryResult = scenarioCards;
+  }
 
 
-    return (
-        <div>
-            <NavBar></NavBar>
-            <div style={{width: "70%", margin: "0 auto"}}>
-              <main className={classes.content}>
-                  <Typography className={classes.typoContent} variant="body1">
-                    Below, we visualize all our traffic scenarios, which range from simple scenarios with a few obstacles
-                    to complex intersection scenarios with many road users. The scenarios are either obtained from real
-                    traffic data (e.g., NGSIM dataset), simulation or are hand-crafted, mostly based on real road networks.
-                    The source of each scenario is also tagged in each scenario file. Please note that we continously add 
-                    more scenarios.
+  return (
+    <div>
+      <NavBar></NavBar>
+      <div style={{ width: "70%", margin: "0 auto" }}>
+        <main className={classes.content}>
+          <Typography className={classes.typoContent} variant="body1">
+            Below, we visualize all our traffic scenarios, which range from simple scenarios with a few obstacles
+            to complex intersection scenarios with many road users. The scenarios are either obtained from real
+            traffic data (e.g., NGSIM dataset), simulation or are hand-crafted, mostly based on real road networks.
+            The source of each scenario is also tagged in each scenario file. Please note that we continously add
+            more scenarios.
                   </Typography>
 
-                  <Typography className={classes.typoContent} variant="body1">
-                    The data for each scenario is stored in separate XML files named by the unique ID and can be downloaded
-                    from below or from the scenario repository. For details on the data in the XML files, please have a look
-                    at the XML format documentation.
+          <Typography className={classes.typoContent} variant="body1">
+            The data for each scenario is stored in separate XML files named by the unique ID and can be downloaded
+            from below or from the scenario repository. For details on the data in the XML files, please have a look
+            at the XML format documentation.
                   </Typography>
 
-                  <Divider className={classes.divider} variant="middle"></Divider>
+          <Divider className={classes.divider} variant="middle"></Divider>
 
-                  <div>
-                    <Typography className={classes.typoContent} variant="body1">
-                      Apply filters the narrow down scenarios list
+          <div>
+            <Typography className={classes.typoContent} variant="body1">
+              Apply filters the narrow down scenarios list
                     </Typography>
-                  </div>
- 
-                  <div style={{marginBottom: "40px"}}>
-                    <ScenarioFilter {...filterProps}></ScenarioFilter>
-                  </div>
-                  
-                  <div>
-                    {queryResult.map(function(item, i){
-                      const cardProps = {
-                        version: item.version,
-                        timeHorizon: item.timeHorizon,
-                        initialVelocity: item.initialVelocity,
-                        staticObs: item.staticObs,
-                        dynamicObs: item.dynamicObs
-                      }
+          </div>
 
-                      return <ScenarioCard {...cardProps}></ScenarioCard>
-                    })}
-                  </div>
+          <div style={{ marginBottom: "40px" }}>
+            <ScenarioFilter {...filterProps}></ScenarioFilter>
+          </div>
 
-              </main>
-            </div>
-        </div>
-    );
+          <div>
+            {queryResult.map(function (item, i) {
+              const cardProps = {
+                version: item.version,
+                timeHorizon: item.timeHorizon,
+                initialVelocity: item.initialVelocity,
+                staticObs: item.staticObs,
+                dynamicObs: item.dynamicObs
+              }
+
+              return <ScenarioCard {...cardProps}></ScenarioCard>
+            })}
+          </div>
+
+        </main>
+      </div>
+    </div>
+  );
 }
