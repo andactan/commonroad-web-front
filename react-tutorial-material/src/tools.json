@@ -1,0 +1,197 @@
+{ 
+    "commonroad_io": {
+        "general": {
+          "title": "Commonroad_io",
+          "text": "The CommonRoad_io provides methods to read, write, and visualize CommonRoad scenarios and planning problems. Furthermore, it can be used as a framework for implementing motion planning algorithms to solve CommonRoad Benchmarks and is the basis for other tool of the CommonRoad Framework. With CommonRoad_io, those solutions can be written to xml-files for uploading them here.",
+          "picture": "scenario-3.gif"
+        },
+        "tutorials": [
+          {"title": "Reading, Modifying, and Writing of CommonRoad scenarios", 
+            "link": "#", 
+            "description": "This tutorial shows how CommonRoad XML-files can be read, modified, visualized, and stored."},
+          {"title": "Variational Trajectory Planning - Build a motion planner and upload benchmark solutions" , 
+            "link": "#", 
+            "description": "This tutorial shows how you can plan trajectories in CommonRoad scenarios by solving an optimization problem and easily create a benchmarc solution file."},
+          {"title": "Batch Processing" , 
+            "link": "#", 
+            "description": "This tutorial shows how to solve for solutions to different scenarios in a batch processing fashion."}
+        ],
+        "links": [
+          {"title": "Documentation",
+            "link": "https://commonroad.in.tum.de/static/docs/commonroad-io/index.html",
+            "description": "Read more about Commonroad_io in the official Documentaion"
+          },
+          {"title": "Forum",
+            "link": "https://commonroad.in.tum.de/forum/c/commonroad-io",
+            "description": "Connect with others and read or write about Commonroad_io in our forum"
+          },
+          {"title": "Repository",
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad_io",
+            "description": "Have a look at the source code for Commonroad_io in our GIT repository"
+          }
+        ],
+        "papers": []
+    },
+
+    "sumo": {
+        "general": {
+          "title": "SUMO - CommonRoad Interface",
+          "text": "This package implements the interface between the framework for motion planning of automated vehicles CommonRoad_io and the traffic simulator SUMO.",
+          "picture": ""
+        },
+        "tutorials": [],
+        "links": [
+          {"title": "Documentation",
+            "link": "https://commonroad.in.tum.de/static/docs/commonroad-sumo-interface/index.html",
+            "description": "Read more about commonroad-sumo-interface in the official Documentaion"
+          },
+          {"title": "Forum",
+            "link": "https://commonroad.in.tum.de/forum/c/sumo-interface",
+            "description": "Connect with others and read or write about commonroad-sumo-interface in our forum"
+          },
+          {"title": "Repository",
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad-sumo-interface",
+            "description": "Have a look at the source code for commonroad-sumo-interface in our GIT repository"
+          }
+        ],
+        "papers": [
+          {"title": "Coupling SUMO with a Motion Planning Framework for Automated Vehicles" ,
+            "authors": "Moritz Klischat; Octav Dragoi; Mostafa Eissa; Matthias Althoff",
+            "BibTex": "https://mediatum.ub.tum.de/export/1486856/bibtex" ,
+            "more": "https://mediatum.ub.tum.de/1486856",
+            "fullText": "https://mediatum.ub.tum.de/doc/1486856/1486856.pdf"
+          }
+        ]
+    },
+
+    "spot": {
+        "general": {
+          "title": "SPOT",
+          "text": "Predicting the movement of other traffic participants is an integral part in the motion planning of most automated road vehicles. While simple       predictions, e.g. based on assuming constant velocity, may suffice for deciding a driving strategy, predicting the set of all possible behaviors is required to ensure safe motion plans.",
+          "picture": "SPOT.png"
+        },
+        "tutorials": [],
+        "links": [
+          {"title": "Manual",
+            "link": "https://gitlab.com/koschi/spot/raw/master/SPOT_Manual_2017a.pdf",
+            "description": "Read more about SPOT in the official SPOT Manual"
+          },
+          {"title": "Forum",
+            "link": "https://commonroad.in.tum.de/forum/c/spot",
+            "description": "Connect with others and read or write about SPOT in our forum"
+          },
+          {"title": "Repository",
+            "link": "https://gitlab.com/koschi/spot/",
+            "description": "Have a look at the source code for SPOT in our GIT repository"
+          },
+          {"title": "Website",
+            "link": "http://koschi.gitlab.io/spot/#",
+            "description": "Visit the Website of SPOT"
+          }
+        ],
+        "papers": [
+          {"title": "SPOT: A tool for set-based prediction of traffic participants" ,
+            "authors": "Koschi, Markus and  Althoff, Matthias",
+            "BibTex": "https://mediatum.ub.tum.de/export/1379612/bibtex",
+            "more": "https://mediatum.ub.tum.de/1379612",
+            "fullText": "https://mediatum.ub.tum.de/doc/1379612/1379612.pdf"
+          }
+        ]
+    },
+
+    "opendrive": {
+        "general": {
+          "title": "OpenDRIVE 2 Lanelet - Converter",
+          "text": "We provide the code for an OpenDRIVE (www.opendrive.org) to lanelets (www.mrt.kit.edu/software/liblanelet) converter, which has been introduced in our paper: M. Althoff, S. Urban, and M. Koschi, \"Automatic Conversion of Road Networks from OpenDRIVE to Lanelets,\" in Proc. of the IEEE International Conference on Service Operations and Logistics, and Informatics, 2018. Additionally, we provide a converter from CommonRoad lanelets to OSM lanelets and vice versa.",
+          "picture": ""
+        },
+        "tutorials": [],
+        "links": [
+          {"title": "General",
+            "link": "https://pypi.org/project/opendrive2lanelet/",
+            "description": "Read more about OpenDRIVE 2 Lanelet - Converter on pypi.org"
+          },
+          {"title": "Forum",
+            "link": "https://commonroad.in.tum.de/forum/c/opendrive-to-lanelet",
+            "description": "Connect with others and read or write about OpenDRIVE 2 Lanelet - Converter in our forum"
+          },
+          {"title": "Repository",
+            "link": "https://gitlab.lrz.de/tum-cps/opendrive2lanelet",
+            "description": "Have a look at the source code for OpenDRIVE 2 Lanelet - Converter in our GIT repository"
+          }
+        ],
+        "papers": [
+          {"title": "Automatic Conversion of Road Networks from OpenDRIVE to Lanelets",
+            "authors": "Matthias Althoff and Stefan Urban and Markus Koschi",
+            "BibTex": "https://mediatum.ub.tum.de/export/1449005/bibtex",
+            "more": "https://mediatum.ub.tum.de/1449005",
+            "fullText": "https://mediatum.ub.tum.de/doc/1449005/1449005.pdf"
+          }
+        ]
+    },
+
+    "search": {
+        "general": {
+          "title": "Commonroad Search",
+          "text": "Graph search-based motion planner for automated vehicles using motion primitives",
+          "picture": ""
+        },
+        "tutorials": [
+            {"title": "Grundlagen der Künstlichen Intelligenz", 
+              "link": "https://gitlab.lrz.de/tum-cps/commonroad-search/-/blob/master/pdfs/0_Guide_for_Exercise.pdf", 
+              "description": "Finding safe motions in complex traffic situation is one of the major challenge in autonomous driving"}
+          ],
+        "links": [
+          {"title": "Forum",
+            "link": "https://commonroad.in.tum.de/forum/c/commonroad-search",
+            "description": "Connect with others and read or write about Commonroad Search in our forum"
+          },
+          {"title": "Repository",
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad-search",
+            "description": "Have a look at the source code for Commonroad Search in our GIT repository"
+          }
+        ],
+        "papers": []
+    },
+
+    "models": {
+        "general": {
+          "title": "Vehicle models and cost functions",
+          "text": "Graph search-based motion planner for automated vehicles using motion primitives",
+          "picture": ""
+        },
+        "tutorials": [],
+        "links": [
+          {"title": "Forum",
+            "link": "https://commonroad.in.tum.de/forum/",
+            "description": "Connect with others and read or write about Commonroad in our forum"
+          },
+          {"title": "MATLAB repository",
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/MATLAB",
+            "description": "Have a look at the source code for Commonroad-vehicle-models for MATLAB in our GIT repository"
+          },
+          {"title": "Python repository",
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad-vehicle-models/tree/master/Python",
+            "description": "Have a look at the source code for Commonroad-vehicle-models for Python in our GIT repository"
+          },
+          {"title": "Cost function Repository",
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad-cost-functions/-/blob/master/costFunctions_commonRoad.pdf",
+            "description": "Have a look at the source code for Commonroad cost functions in our GIT repository"
+          },
+          {"title": "CommonRoad: Cost Function Specification" ,
+            "link": "https://gitlab.lrz.de/tum-cps/commonroad-cost-functions/-/blob/master/costFunctions_commonRoad.pdf",
+            "description": "Motion planning for a single vehicle or multiple vehicles usually requires the minimiza-tion of some objectives."
+        }
+        ],
+        "papers": [
+            {"title": "CommonRoad: Composable benchmarks for motion planning on roads",
+              "authors": "Althoff, Matthias and Koschi, Markus and Manzinger, Stefanie",
+              "BibTex": "https://mediatum.ub.tum.de/export/1379638/bibtex",
+              "more": "https://mediatum.ub.tum.de/1379638",
+              "fullText": "https://mediatum.ub.tum.de/doc/1379638/1379638.pdf"
+            }
+          ]
+    }
+}
+
+

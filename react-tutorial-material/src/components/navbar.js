@@ -267,7 +267,7 @@ export default function NavBar() {
           }
       }
     }
-
+    
     const titles = Object.keys(links);
     const [drawer, setDrawer] = useState(false);
     const [sub, setSub] = useState(new Array(titles.length).fill(false));
@@ -276,6 +276,7 @@ export default function NavBar() {
         var arr = new Array(titles.length).fill(false);
         arr[i] = true; 
         setSub(arr);
+
     }
 
     const closeSubs = () => {
