@@ -17,7 +17,7 @@ export default class Index2 extends React.Component {
   render() {
     return (
         <div style={{backgroundColor: "#FFFFFF"}}>
-            <Menu></Menu>
+            <Navbar></Navbar>
             <div class="wrapper" style={{display: "flex", flexDirection: "row", justifyContent: "center", "alignItems": "center", paddingTop: "130px", width:"70%", margin: "0 auto"}}>
               <div class="wrapper" style={{paddingTop: "30px"}}> {/** left div */}
                 <div>
