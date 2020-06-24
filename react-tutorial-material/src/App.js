@@ -13,6 +13,7 @@ import Index from './pages/index';
 import SubmissionDetails from './pages/submission-details';
 import Index2 from './pages/index2';
 
+
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
@@ -22,9 +23,11 @@ import NewSubmission from './pages/new-submission';
 import UserSubmissions from './pages/user-submissions';
 import Teaching from './pages/teaching';
 import Internship from './pages/internship';
+
 import Tool from './pages/tool'
 
 import tools from "./tools.json"
+
 
 
 const theme = createMuiTheme({
